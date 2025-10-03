@@ -1,7 +1,9 @@
 "use client";
 import CategorySection from "@/components/Home/CategorySection";
 import CategoryShowcase from "@/components/Home/CategoryShowcase";
+import { CraftingJewelry } from "@/components/Home/CraftingJewelry";
 import { FeaturedCategory } from "@/components/Home/FeaturedCategory";
+import { FeaturedJewelry } from "@/components/Home/FeaturedJewelry";
 import { motion } from "framer-motion";
 
 export default function Home() {
@@ -73,7 +75,9 @@ export default function Home() {
       <CategorySection />
       <FeaturedCategory/>
       <CategoryShowcase title={"Find The Perfect Diamond For"}/>
+      <FeaturedJewelry/>
       <CategoryShowcase title={"Find The Perfect Rubys For"}/>
+      <CraftingJewelry/>
     </div>
   );
 }
