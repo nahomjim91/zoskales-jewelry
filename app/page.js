@@ -1,15 +1,19 @@
 "use client";
-import CategorySection from "@/components/cards/ProductCard";
+import CategorySection from "@/components/Home/CategorySection";
+import CategoryShowcase from "@/components/Home/CategoryShowcase";
+import { FeaturedCategory } from "@/components/Home/FeaturedCategory";
 import { motion } from "framer-motion";
 
 export default function Home() {
   return (
     <div
-      className="relative h-screen w-full"
+      className="relative h-screen w-full "
       style={{
         backgroundImage: "url('/images/bg/diamond_earrings.png')",
         backgroundPosition: "center",
         backgroundSize: "cover",
+                backgroundAttachment: "fixed",
+
       }}
     >
       {/* Gradient Overlay */}
@@ -67,6 +71,9 @@ export default function Home() {
 
 
       <CategorySection />
+      <FeaturedCategory/>
+      <CategoryShowcase title={"Find The Perfect Diamond For"}/>
+      <CategoryShowcase title={"Find The Perfect Rubys For"}/>
     </div>
   );
 }
