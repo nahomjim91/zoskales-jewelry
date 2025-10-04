@@ -50,8 +50,8 @@ export function FeaturedCategory({ onMoreProductsClick }) {
   };
 
   return (
-    <div className="relative   md:py-12 md:pl-12 overflow-x-hidden bg-white">
-      <div className="flex flex-col lg:flex-row gap-4 lg:gap-12 items-center">
+    <div className="relative pb-12 md:py-24 md:pl-12 overflow-x-hidden bg-white">
+      <div className="flex  flex-col lg:flex-row gap-4 lg:gap-12 items-center">
         {/* Left Content Section */}
         <motion.div
           className="flex-1 max-w-full p-4 md:p-0 "
@@ -82,11 +82,11 @@ export function FeaturedCategory({ onMoreProductsClick }) {
         </motion.div>
 
         {/* Right Products Section */}
-        <div className=" hidden md:block relative ">
+        <div className=" hidden md:block relative  ">
           {/* Navigation Buttons */}
-          <div className="md:absolute -top-16 right-3 flex gap-2 z-10">
+          <div className=" md:absolute -top-16 right-3 flex gap-2 z-10">
             <motion.button
-              className="bg-gradient-to-r from-primary/30 to-secondary/60 hover:from-primary hover:to-secondary  text-white rounded-lg px-3  shadow-lg "
+              className=" bg-gradient-to-r from-primary/30 to-secondary/60 hover:from-primary hover:to-secondary  text-white rounded-lg px-3  shadow-lg "
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               onClick={handlePrevious}
@@ -151,8 +151,8 @@ export function FeaturedCategory({ onMoreProductsClick }) {
           </div>
         </div>
         {/* mobile */}
-<div className="md:hidden flex flex-col items-center gap-3 w-full px-3 overflow-hidden">
-             <div className="w-full ">
+        <div className="md:hidden flex flex-col items-center gap-3 w-full px-3 overflow-hidden overflow-y-auto">
+          <div className="w-full ">
             <div className="flex gap-4">
               {getVisibleProducts().map((product, index) => (
                 <motion.div
@@ -173,47 +173,6 @@ export function FeaturedCategory({ onMoreProductsClick }) {
                 </motion.div>
               ))}
             </div>
-          </div>
-            <div className=" flex gap-2 z-10">
-            <motion.button
-              className="bg-gradient-to-r from-primary/30 to-secondary/60 hover:from-primary hover:to-secondary  text-white rounded-lg px-3  shadow-lg "
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              onClick={handlePrevious}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                className="size-6 md:size-14"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M7.28 7.72a.75.75 0 0 1 0 1.06l-2.47 2.47H21a.75.75 0 0 1 0 1.5H4.81l2.47 2.47a.75.75 0 1 1-1.06 1.06l-3.75-3.75a.75.75 0 0 1 0-1.06l3.75-3.75a.75.75 0 0 1 1.06 0Z"
-                  clipRule="evenodd"
-                />
-              </svg>
-            </motion.button>
-
-            <motion.button
-              className="bg-gradient-to-r from-primary to-secondary  text-white rounded-lg px-3  shadow-lg "
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              onClick={handleNext}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                className="size-6 md:size-14"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M16.72 7.72a.75.75 0 0 1 1.06 0l3.75 3.75a.75.75 0 0 1 0 1.06l-3.75 3.75a.75.75 0 1 1-1.06-1.06l2.47-2.47H3a.75.75 0 0 1 0-1.5h16.19l-2.47-2.47a.75.75 0 0 1 0-1.06Z"
-                  clipRule="evenodd"
-                />
-              </svg>
-            </motion.button>
           </div>
 
         </div>

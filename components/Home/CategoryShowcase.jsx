@@ -54,7 +54,10 @@ const cardWidth = Math.min(100, 100 / products.length);
         backgroundAttachment: "fixed",
       }}
     >
-      <div className="max-w-7xl mx-auto">
+          {/* Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-br from-amber-900/40 via-amber-800/30 to-amber-700/40 z-0"></div>
+
+      <div className="relative max-w-7xl mx-auto z-10">
         <div className="flex items-center justify-between mb-12">
           <h2 className="text-4xl md:text-5xl font-bold text-white font-serif">
             {title}

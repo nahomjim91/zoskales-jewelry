@@ -74,7 +74,7 @@ export default function Footer() {
               <img
                 src="/images/logo.png"
                 alt="ZOSKALES Logo"
-                className="h-14 md:h-18 w-auto brightness-0 invert"
+                className="h-10 md:h-14 w-auto brightness-0 invert"
               />
             </motion.div>
 
@@ -96,13 +96,13 @@ export default function Footer() {
                 <div className="w-9 h-9 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center group-hover:bg-white/20 transition-all">
                   <Phone className="w-4 h-4" />
                 </div>
-                <span className="text-sm">+1 (555) 123-4567</span>
+                <span className="text-sm">+251 9120 345 678</span>
               </div>
               <div className="flex items-start gap-3 text-white/80 hover:text-white transition-colors group">
                 <div className="w-9 h-9 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center group-hover:bg-white/20 transition-all mt-0.5">
                   <MapPin className="w-4 h-4" />
                 </div>
-                <span className="text-sm">123 Jewelry Lane, New York, NY 10001</span>
+                <span className="text-sm">Dembel City Center, Addis Ababa, Ethiopia</span>
               </div>
             </motion.div>
           </div>
@@ -292,7 +292,7 @@ export default function Footer() {
           <div className="flex flex-col md:flex-row items-center gap-2 md:gap-4 text-white/70 text-xs md:text-sm order-1 md:order-2">
             <p>© 2025 ZOSKALES, Inc. All Rights Reserved</p>
             <span className="hidden md:inline">•</span>
-            <p>Built by Seilhom Kidame</p>
+            <a href="https://seilhom.vercel.app" target="_blank" className="underline">Built by Seilhom Kidame</a>
           </div>
         </motion.div>
       </motion.div>
