@@ -5,12 +5,13 @@ import { CraftingJewelry } from "@/components/Home/CraftingJewelry";
 import { FeaturedCategory } from "@/components/Home/FeaturedCategory";
 import { FeaturedJewelry } from "@/components/Home/FeaturedJewelry";
 import ImageCollage from "@/components/Home/ImageCollage";
+import Newslatter from "@/components/Home/Newslatter";
 import { motion } from "framer-motion";
 
 export default function Home() {
   return (
     <div
-      className="relative h-screen overflow-x-lip w-screen  "
+      className="relative min-h-screen overflow-x-lip w-full  "
       style={{
         backgroundImage: "url('/images/bg/diamond_earrings.png')",
         backgroundPosition: "center",
@@ -78,6 +79,7 @@ export default function Home() {
       <CategoryShowcase title={"Find The Perfect Rubys For"} />
       <CraftingJewelry />
       <ImageCollage />
+      <Newslatter/>
     </div>
   );
 }

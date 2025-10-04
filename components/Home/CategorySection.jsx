@@ -32,7 +32,7 @@ export default function CategorySection() {
   };
 
   return (
-    <div className="py-16 px-6 md:px-12 lg:px-16  ">
+    <div className="py-16 px-6 md:px-12 lg:px-16 bg  ">
       <div className="max-w-7xl mx-auto">
       
 

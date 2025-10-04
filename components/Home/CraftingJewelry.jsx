@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 export function CraftingJewelry({ onMoreProductsClick }) {
   return (
-    <div className="bg-white flex flex-col md:flex-row items-center gap-4 md:gap-6 px-4 md:px-12 lg:px-20 py-16 overflow-hidden max-w-screen-2xl mx-auto">
+    <div className="relative bg-white flex flex-col md:flex-row items-center gap-4 md:gap-6 px-4 md:px-12 lg:px-20 py-16 overflow-hidden max-w-screen-2xl mx-auto z-20">
       {/* Left Image Masonry Layout */}
       <motion.div
         className="flex gap-3 flex-1 md:pl-10"
