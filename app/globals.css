@@ -17,3 +17,15 @@
 body {
   font-family: var(--font-sans);
 }
+
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+  position: relative;
+}
+
+/* Fix for absolute positioned elements */
+.overflow-fix {
+  max-width: 100%;
+  position: relative;
+}

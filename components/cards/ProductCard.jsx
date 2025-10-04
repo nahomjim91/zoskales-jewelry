@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight ,Heart, ShoppingCart } from 'lucide-react';
@@ -38,13 +39,13 @@ export function ProductCardWithPrice({ id, type, name, newPrice, oldPrice, image
       </motion.button>
       
       {/* Image - Absolute Positioned */}
-      <motion.img 
-        src={image} 
-        alt={name}
-        className="absolute inset-0 w-full h-full object-contain drop-shadow-2xl p-8 md:p-12"
-        whileHover={{ scale: 1.1, rotate: 5 }}
-        transition={{ duration: 0.3 }}
-      />
+    <motion.img 
+  src={image} 
+  alt={name}
+  className="absolute inset-0 w-full h-full object-contain drop-shadow-2xl p-8 md:p-12"
+  whileHover={{ scale: 1.05, rotate: 2 }} 
+  transition={{ duration: 0.3 }}
+/>
       
       {/* Content */}
       <div className="relative p-6 md:p-8 flex flex-col justify-between h-full">
@@ -105,12 +106,12 @@ export function ProductCard({ id, type, name, image, onClick }) {
       
       {/* Image - Absolute Positioned */}
       <motion.img 
-        src={image} 
-        alt={name}
-        className="absolute inset-0 w-full h-full object-contain drop-shadow-2xl p-8 md:p-12"
-        whileHover={{ scale: 1.1, rotate: 5 }}
-        transition={{ duration: 0.3 }}
-      />
+  src={image} 
+  alt={name}
+  className="absolute inset-0 w-full h-full object-contain drop-shadow-2xl p-8 md:p-12"
+  whileHover={{ scale: 1.05, rotate: 2 }} 
+  transition={{ duration: 0.3 }}
+/>
       
       {/* Content */}
       <div className="relative p-6 md:p-8 flex flex-col justify-between h-full">

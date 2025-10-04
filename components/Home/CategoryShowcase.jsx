@@ -41,8 +41,8 @@ export default function CategoryShowcase({
   };
 
   // width calculation (no clones now)
-  const containerWidth = (products.length * 100) / visible;
-  const cardWidth = 100 / products.length;
+const containerWidth = Math.min(300, (products.length * 100) / visible);
+const cardWidth = Math.min(100, 100 / products.length);
 
   return (
     <div

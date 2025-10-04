@@ -1,3 +1,4 @@
+
 import { motion } from 'framer-motion';
 import { ArrowRight ,Heart, ShoppingCart } from 'lucide-react';
 import { ProductCard } from '../cards/ProductCard';
@@ -31,12 +32,12 @@ export default function CategorySection() {
   };
 
   return (
-    <div className="py-16 px-6 md:px-12 lg:px-16 ">
+    <div className="py-16 px-6 md:px-12 lg:px-16  ">
       <div className="max-w-7xl mx-auto">
       
 
         {/* Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 bg">
           {categories.map((category, index) => (
             <motion.div
               key={category.id}

@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 export function FeaturedJewelry({ onMoreProductsClick }) {
   return (
-    <div className="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12 px-6 md:px-12 lg:px-20 py-12">
+    <div className=" bg-white flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12 px-6 md:px-12 lg:px-20 py-12 ">
       {/* Left Content Section */}
       <motion.div
         className="flex-1 max-w-full p-4 md:p-0 "

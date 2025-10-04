@@ -4,25 +4,25 @@ import CategoryShowcase from "@/components/Home/CategoryShowcase";
 import { CraftingJewelry } from "@/components/Home/CraftingJewelry";
 import { FeaturedCategory } from "@/components/Home/FeaturedCategory";
 import { FeaturedJewelry } from "@/components/Home/FeaturedJewelry";
+import ImageCollage from "@/components/Home/ImageCollage";
 import { motion } from "framer-motion";
 
 export default function Home() {
   return (
     <div
-      className="relative h-screen w-full "
+      className="relative h-screen overflow-x-lip w-screen  "
       style={{
         backgroundImage: "url('/images/bg/diamond_earrings.png')",
         backgroundPosition: "center",
         backgroundSize: "cover",
-                backgroundAttachment: "fixed",
-
+        backgroundAttachment: "fixed",
       }}
     >
       {/* Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-r from-primary to-secondary opacity-30"></div>
 
       {/* Content Container */}
-      <div className="relative z-10 flex   px-6 sm:px-8 md:px-12 lg:px-12 py-28 bg-mber-500">
+      <div className="relative z-10 flex px-6 sm:px-8 md:px-12 lg:px-16 py-28 bg-mber-500">
         <div className="">
           {/* Heading */}
           <motion.h1
@@ -71,13 +71,13 @@ export default function Home() {
         </div>
       </div>
 
-
       <CategorySection />
-      <FeaturedCategory/>
-      <CategoryShowcase title={"Find The Perfect Diamond For"}/>
-      <FeaturedJewelry/>
-      <CategoryShowcase title={"Find The Perfect Rubys For"}/>
-      <CraftingJewelry/>
+      <FeaturedCategory />
+      <CategoryShowcase title={"Find The Perfect Diamond For"} />
+      <FeaturedJewelry />
+      <CategoryShowcase title={"Find The Perfect Rubys For"} />
+      <CraftingJewelry />
+      <ImageCollage />
     </div>
   );
 }

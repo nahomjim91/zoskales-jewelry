@@ -50,7 +50,7 @@ export function FeaturedCategory({ onMoreProductsClick }) {
   };
 
   return (
-    <div className="relative   md:py-12 md:pl-12 overflow-x-clip">
+    <div className="relative   md:py-12 md:pl-12 overflow-x-hidden bg-white">
       <div className="flex flex-col lg:flex-row gap-4 lg:gap-12 items-center">
         {/* Left Content Section */}
         <motion.div
@@ -151,7 +151,7 @@ export function FeaturedCategory({ onMoreProductsClick }) {
           </div>
         </div>
         {/* mobile */}
-        <div className="md:hidden flex flex-col items-center gap-3 w-full px-3">
+<div className="md:hidden flex flex-col items-center gap-3 w-full px-3 overflow-hidden">
              <div className="w-full ">
             <div className="flex gap-4">
               {getVisibleProducts().map((product, index) => (

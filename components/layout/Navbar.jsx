@@ -1,17 +1,10 @@
 'use client';
 import { useState, useEffect } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { scrollY } = useScroll();
-  
-  const backgroundColor = useTransform(
-    scrollY,
-    [0, 100],
-    ['rgba(59, 31, 31, 0)', 'rgba(96, 22, 22, 0.5)']
-  );
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,18 +18,22 @@ export default function Navbar() {
 
   return (
     <motion.nav
-      style={{ backgroundColor }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'backdrop-blur-sm shadow-2xl' : ''
+        isScrolled 
+          ? 'bg-gradient-to-r from-[rgba(96,22,22,0.95)] to-[rgba(96,22,22,0.95)] backdrop-blur-sm shadow-2xl' 
+          : 'bg-transparent'
       }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.5, ease: 'easeOut' }}
+      transition={{ duration: 0.7, ease: 'easeOut' }}
     >
-      <div className="mx-auto flex items-center justify-between py-2 md:pt-5 md:pb-3 ">
-        {/* Left side logo */}
+      <div className="w-full flex items-center justify-between py-2 md:pt-5 md:pb-3 px-0">
+        {/* Left side logo - Fade in from LEFT to RIGHT */}
         <motion.div 
           className="flex items-center z-20"
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.3, ease: 'easeOut' }}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
@@ -47,7 +44,7 @@ export default function Navbar() {
 
         {/* Mobile menu button */}
         <button
-          className="lg:hidden z-20 text-white bg-gradient-to-r from-primary via-primary to-secondary  p-2"
+          className="lg:hidden z-20 text-white bg-gradient-to-r from-primary via-primary to-secondary p-2 mr-2"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6">
@@ -59,12 +56,12 @@ export default function Navbar() {
           </svg>
         </button>
 
-        {/* Center navigation links - Desktop */}
+        {/* Center navigation links - Desktop - Fade in from TOP to BOTTOM */}
         <motion.div 
           className="hidden lg:flex flex-1 justify-center px-8"
-          initial={{ opacity: 0, y: -20 }}
+          initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          transition={{ duration: 0.6, delay: 0.7, ease: 'easeOut' }}
         >
           <div className="bg-gradient-to-r from-primary to-secondary rounded-full px-8 xl:px-12 py-3 xl:py-4 shadow-2xl border border-[#4a1010]">
             <ul className="flex items-center gap-6 xl:gap-12 text-white text-sm xl:text-base font-medium">
@@ -72,9 +69,9 @@ export default function Navbar() {
                 <motion.li
                   key={item}
                   className="hover:text-gray-300 cursor-pointer transition-colors duration-200 whitespace-nowrap"
-                  initial={{ opacity: 0, y: -10 }}
+                  initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: 0.1 * index }}
+                  transition={{ duration: 0.4, delay: 0.3 + (0.1 * index), ease: 'easeOut' }}
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -85,12 +82,12 @@ export default function Navbar() {
           </div>
         </motion.div>
 
-        {/* Right side cart - Desktop */}
+        {/* Right side cart - Desktop - Fade in from RIGHT to LEFT */}
         <motion.div 
           className="hidden lg:flex items-center z-20"
-          initial={{ opacity: 0, x: 20 }}
+          initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
+          transition={{ duration: 0.6, delay: 0.8, ease: 'easeOut' }}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
