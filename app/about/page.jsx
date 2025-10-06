@@ -1,10 +1,12 @@
 "use client";
 
 import { Craftsmanship } from "@/components/About/Craftsmanship";
-import {OurStory } from "@/components/About/OurStory";
+import { OurStory } from "@/components/About/OurStory";
+import {OurStore } from "@/components/About/OurStore";
 import { OurExpert } from "@/components/About/OurExpert";
 import { motion } from "framer-motion";
 import ClientTestimonials from "@/components/About/ClientTestimonials";
+import InviteClient from "@/components/About/InviteClient";
 
 export default function About() {
 return (
@@ -47,6 +49,8 @@ return (
       <Craftsmanship/>
       <OurExpert/>
       <ClientTestimonials/>
+      <OurStore/>
+      <InviteClient/>
       </>
   );
 }
