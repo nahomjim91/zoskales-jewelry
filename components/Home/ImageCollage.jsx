@@ -19,7 +19,7 @@ export default function ImageCollage({ onFollowClick }) {
     "/images/model_poster/Pearl and Diamond Earrings.png",
     "/images/model_poster/Ruby Diamond Nature-Inspired Ring.png",
     "/images/model_poster/Ruby Earrings and Diamond Necklace Set - No Text.png",
-    "/images/model_poster/Statement Diamond Ring.png",
+    "/images/model_poster/StatementDiamondRing.png",
     "/images/model_poster/ThisringisntjustapieceofjewelrytsapromiseaforeverasparklecraftedbyZo.jpg",
     "/images/model_poster/Three-Stone Ruby Ring - No Text.png",
     "/images/model_poster/💃New earrings from Zoskales = instant confidence upgrade. Love is rare, real, and radiant—just .jpg",
