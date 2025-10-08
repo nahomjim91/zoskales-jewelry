@@ -2,11 +2,19 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import useCart from "@/hooks/useCart";
+import Cart from "../Cart";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { openCart, isOpen, getItemCount } = useCart();
+  const itemCount = getItemCount();
+  const [mounted, setMounted] = useState(false);
 
+  useEffect(() => {
+    setMounted(true);
+  }, []);
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
@@ -23,6 +31,7 @@ export default function Navbar() {
     { name: "Materials", to: "/materials" },
     { name: "Contact Us", to: "/contact-us" },
   ];
+
   return (
     <motion.nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -35,7 +44,7 @@ export default function Navbar() {
       transition={{ duration: 0.7, ease: "easeOut" }}
     >
       <div className="w-full flex items-center justify-between py-2 md:pt-5 md:pb-3 px-0">
-        {/* Left side logo - Fade in from LEFT to RIGHT */}
+        {/* Left side logo */}
         <motion.div
           className="flex items-center z-20"
           initial={{ opacity: 0, x: -50 }}
@@ -44,7 +53,10 @@ export default function Navbar() {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          <Link href="/" className="bg-gradient-to-r from-primary via-secondary to-secondary rounded-br-full rounded-tr-full px-4 sm:px-6 py-2 shadow-2xl transition-all duration-200 flex items-center">
+          <Link
+            href="/"
+            className="bg-gradient-to-r from-primary via-secondary to-secondary rounded-br-full rounded-tr-full px-4 sm:px-6 py-2 shadow-2xl transition-all duration-200 flex items-center"
+          >
             <img
               src="/images/logo.png"
               alt="Logo"
@@ -82,7 +94,7 @@ export default function Navbar() {
           </svg>
         </button>
 
-        {/* Center navigation links - Desktop - Fade in from TOP to BOTTOM */}
+        {/* Center navigation links - Desktop */}
         <motion.div
           className="hidden lg:flex flex-1 justify-center px-8"
           initial={{ opacity: 0, y: -50 }}
@@ -116,7 +128,7 @@ export default function Navbar() {
           </div>
         </motion.div>
 
-        {/* Right side cart - Desktop - Fade in from RIGHT to LEFT */}
+        {/* Right side cart - Desktop */}
         <motion.div
           className="hidden lg:flex items-center z-20"
           initial={{ opacity: 0, x: 50 }}
@@ -125,7 +137,10 @@ export default function Navbar() {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          <button className="bg-gradient-to-r from-primary via-primary to-secondary rounded-bl-full rounded-tl-full px-4 py-3 xl:py-4 shadow-2xl transition-all duration-200 flex items-center gap-2.5 text-white border border-[#4a1010]">
+          <button
+            onClick={openCart}
+            className="bg-gradient-to-r from-primary via-primary to-secondary rounded-bl-full rounded-tl-full px-4 py-3 xl:py-4 shadow-2xl transition-all duration-200 flex items-center gap-2.5 text-white border border-[#4a1010] relative"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -143,6 +158,11 @@ export default function Navbar() {
             <span className="text-sm xl:text-base font-medium hidden sm:inline">
               My Cart
             </span>
+            {mounted && itemCount > 0 && (
+              <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold rounded-full w-6 h-6 flex items-center justify-center">
+                {itemCount}
+              </span>
+            )}
           </button>
         </motion.div>
       </div>
@@ -182,7 +202,11 @@ export default function Navbar() {
             ))}
           </ul>
           <motion.button
-            className="w-full bg-gradient-to-r from-primary via-primary to-secondary rounded-full px-6 py-4 shadow-2xl transition-all duration-200 flex items-center justify-center gap-2.5 text-white border border-[#4a1010] mt-6"
+            onClick={() => {
+              openCart();
+              setIsMobileMenuOpen(false);
+            }}
+            className="w-full bg-gradient-to-r from-primary via-primary to-secondary rounded-full px-6 py-4 shadow-2xl transition-all duration-200 flex items-center justify-center gap-2.5 text-white border border-[#4a1010] mt-6 relative"
             initial={{ opacity: 0, y: 20 }}
             animate={
               isMobileMenuOpen ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
@@ -205,9 +229,15 @@ export default function Navbar() {
               />
             </svg>
             <span className="text-base font-medium">My Cart</span>
+             {mounted && itemCount > 0 && (
+          <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold rounded-full w-6 h-6 flex items-center justify-center">
+            {itemCount}
+          </span>
+        )}
           </motion.button>
         </div>
       </motion.div>
+      {isOpen && <Cart />}
     </motion.nav>
   );
 }
