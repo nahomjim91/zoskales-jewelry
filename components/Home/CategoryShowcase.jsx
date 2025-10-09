@@ -1,20 +1,22 @@
 "use client";
 import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { jewelryData } from "@/app/collections/products";
+import useCart from "@/hooks/useCart";
 import { ProductCardWithPrice } from "../cards/ProductCard";
 
 export default function CategoryShowcase({
   title = "Find The Perfect Diamond For",
+  stoneType = "Diamond",
 }) {
-     const products = [
-    { id: 1, name: "Rings", newPrice: 999, oldPrice: 1299, image: "/images/products/ring-5.png", type: "ring" },
-    { id: 2, name: "Necklace", newPrice: 849, oldPrice: 1149, image: "/images/products/necklace-1.png", type: "necklace" },
-    { id: 3, name: "Earrings", newPrice: 999, oldPrice: 1299, image: "/images/products/earring-4.png", type: "earrings" },
-    { id: 4, name: "Couple Rings", newPrice: 999, oldPrice: 1299, image: "/images/products/couple-ring.png", type: "ring" },
-    { id: 5, name: "Rings", newPrice: 999, oldPrice: 1299, image: "/images/products/ring-5.png", type: "ring" },
-    { id: 6, name: "Necklace", newPrice: 849, oldPrice: 1149, image: "/images/products/necklace-1.png", type: "necklace" },
-    { id: 7, name: "Earrings", newPrice: 999, oldPrice: 1299, image: "/images/products/earring-4.png", type: "earrings" },
-  ];
+  const products = jewelryData
+    .filter((item) => {
+      return item.stoneType === stoneType;
+    })
+    .slice(0, 10);
+
+
+  const { addItem } = useCart();
 
   const [visible, setVisible] = useState(3);
   useEffect(() => {
@@ -39,10 +41,12 @@ export default function CategoryShowcase({
       setCurrentIndex((prev) => prev - 1);
     }
   };
+    const handleAddToCart = (product) => {
+    addItem(product);
+  };
 
-  // width calculation (no clones now)
-const containerWidth = Math.min(300, (products.length * 100) / visible);
-const cardWidth = Math.min(100, 100 / products.length);
+  const containerWidth = Math.min(300, (products.length * 100) / visible);
+  const cardWidth = Math.min(100, 100 / products.length);
 
   return (
     <div
@@ -54,7 +58,7 @@ const cardWidth = Math.min(100, 100 / products.length);
         backgroundAttachment: "fixed",
       }}
     >
-          {/* Gradient Overlay */}
+      {/* Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-amber-900/40 via-amber-800/30 to-amber-700/40 z-0"></div>
 
       <div className="relative max-w-7xl mx-auto z-10">
@@ -69,21 +73,20 @@ const cardWidth = Math.min(100, 100 / products.length);
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               onClick={handlePrev}
+              disabled={currentIndex === 0}
             >
-              {" "}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
                 fill="currentColor"
                 className="size-6 md:size-14"
               >
-                {" "}
                 <path
                   fillRule="evenodd"
                   d="M7.28 7.72a.75.75 0 0 1 0 1.06l-2.47 2.47H21a.75.75 0 0 1 0 1.5H4.81l2.47 2.47a.75.75 0 1 1-1.06 1.06l-3.75-3.75a.75.75 0 0 1 0-1.06l3.75-3.75a.75.75 0 0 1 1.06 0Z"
                   clipRule="evenodd"
-                />{" "}
-              </svg>{" "}
+                />
+              </svg>
             </motion.button>
 
             <motion.button
@@ -91,45 +94,49 @@ const cardWidth = Math.min(100, 100 / products.length);
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               onClick={handleNext}
+              disabled={currentIndex + visible >= products.length}
             >
-              {" "}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
                 fill="currentColor"
                 className="size-6 md:size-14 text-primary"
               >
-                {" "}
                 <path
                   fillRule="evenodd"
                   d="M16.72 7.72a.75.75 0 0 1 1.06 0l3.75 3.75a.75.75 0 0 1 0 1.06l-3.75 3.75a.75.75 0 1 1-1.06-1.06l2.47-2.47H3a.75.75 0 0 1 0-1.5h16.19l-2.47-2.47a.75.75 0 0 1 0-1.06Z"
                   clipRule="evenodd"
-                />{" "}
-              </svg>{" "}
+                />
+              </svg>
             </motion.button>
           </div>
         </div>
 
-        {/* Outer wrapper MUST hide overflow on desktop so slides are clipped */}
         <div className="overflow-hidden">
           {/* Mobile scrollable */}
           <div className="flex sm:hidden gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-hide">
-            {products.map((product, idx) => (
-              <div key={idx} className="flex-shrink-0 snap-center w-[80%]">
-                <ProductCardWithPrice {...product} />
+            {products.map((product) => (
+              <div
+                key={product.id}
+                className="flex-shrink-0 snap-center w-[80%]"
+              >
+                <ProductCardWithPrice
+                  product={product}
+                  onAddToCart={handleAddToCart}
+                />
               </div>
             ))}
           </div>
 
           {/* Desktop sliding carousel */}
-                   <motion.div
+          <motion.div
             className="hidden sm:flex gap-4 md:gap-8 items-stretch"
             style={{ width: `${containerWidth}%` }}
             animate={{ x: `-${(currentIndex * 100) / products.length}%` }}
             transition={{ duration: 0.6, ease: "easeInOut" }}
           >
             <AnimatePresence initial={false}>
-              {products.map((product, idx) => (
+              {products.map((product) => (
                 <motion.div
                   key={product.id}
                   style={{ width: `${cardWidth}%` }}
@@ -139,12 +146,14 @@ const cardWidth = Math.min(100, 100 / products.length);
                   exit={{ opacity: 0, y: -50 }}
                   transition={{ duration: 0.6 }}
                 >
-                  <ProductCardWithPrice {...product} />
+                  <ProductCardWithPrice
+                    product={product}
+                    onAddToCart={handleAddToCart}
+                  />
                 </motion.div>
               ))}
             </AnimatePresence>
           </motion.div>
-
         </div>
       </div>
     </div>

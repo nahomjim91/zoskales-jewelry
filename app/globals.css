@@ -29,6 +29,7 @@ html, body {
   max-width: 100%;
   position: relative;
 }
-.sds {
-  color:#3B1F1F ;
+
+::-webkit-scrollbar {
+  display: none;
 }

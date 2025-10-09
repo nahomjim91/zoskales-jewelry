@@ -33,13 +33,14 @@ export default function InviteClient() {
               custom design that tells your unique story.
             </p>
 
-            <motion.button
+            <motion.a
+            href="/contact"
               className="bg-white rounded-full px-8 md:px-12 py-3 md:py-4 text-primary text-base md:text-lg font-semibold transition-all shadow-2xl hover:scale-105"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
               Contact Us
-            </motion.button>
+            </motion.a>
           </div>
         </div>
 

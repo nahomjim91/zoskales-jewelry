@@ -10,25 +10,23 @@ export default function CategorySection() {
       type: "rings",
       name: "Rings",
       image: "/images/products/ring-6.png",
+      link: "/collections?category=rings"
     },
     {
       id: 2,
       type: "couple-rings",
       name: "Couple Rings",
       image: "/images/products/couple-ring.png",
+      link: "/collections?category=rings&gender=couple"
     },
     {
       id: 3,
       type: "earrings",
       name: "Earrings",
       image: "/images/products/red-rubi-earring.png",
+      link: "/collections?category=earrings&material=ruby"
     },
   ];
-
-  const handleCardClick = (category) => {
-    console.log("Category clicked:", category);
-    // Add your navigation or modal logic here
-  };
 
   return (
     <div className="relative py-6 px-6 md:px-12 lg:px-16">
@@ -50,7 +48,7 @@ export default function CategorySection() {
                 type={category.type}
                 name={category.name}
                 image={category.image}
-                onClick={() => handleCardClick(category)}
+                link={category.link}
               />
             </motion.div>
           ))}

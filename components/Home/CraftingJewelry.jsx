@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-export function CraftingJewelry({ onMoreProductsClick }) {
+export function CraftingJewelry() {
   return (
     <div className="relative bg-white flex flex-col md:flex-row items-center gap-4 md:gap-6 px-4 md:px-12 lg:px-20 py-16 overflow-hidden max-w-screen-2xl mx-auto z-20">
       {/* Left Image Masonry Layout */}
@@ -105,14 +105,14 @@ export function CraftingJewelry({ onMoreProductsClick }) {
           if you really care about them, you're going to want to put some
           thought into it
         </p>
-        <motion.button
+        <motion.a
+          href="/collections"
           className="bg-gradient-to-r from-primary to-secondary rounded-full px-6 py-2 text-white text-base md:text-lg font-semibold transition-all shadow-2xl hover:scale-105"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          onClick={onMoreProductsClick}
         >
           More Product
-        </motion.button>
+        </motion.a>
       </motion.div>
     </div>
   );

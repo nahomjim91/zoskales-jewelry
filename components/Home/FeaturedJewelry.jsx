@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-export function FeaturedJewelry({ onMoreProductsClick }) {
+export function FeaturedJewelry() {
   return (
     <div className="relative bg-white flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12 px-6 md:px-12 lg:px-20 py-12 ">
       {/* Left Content Section */}
@@ -23,15 +23,15 @@ export function FeaturedJewelry({ onMoreProductsClick }) {
           occasion, from engagement rings and wedding bands to anniversary and
           Christmas gifts{" "}
         </p>{" "}
-        <motion.button
+        <motion.a
+        href="/collections"
           className="bg-gradient-to-r from-primary to-secondary rounded-full px-6 py-2 text-white text-base md:text-lg font-semibold transition-all shadow-2xl hover:scale-105"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          onClick={onMoreProductsClick}
         >
           {" "}
           More Product{" "}
-        </motion.button>{" "}
+        </motion.a>{" "}
       </motion.div>
 
       {/* Right Products Section */}

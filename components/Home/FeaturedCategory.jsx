@@ -1,35 +1,38 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { ProductCardWithPrice } from "../cards/ProductCard";
+import useCart from "@/hooks/useCart";
 
-export function FeaturedCategory({ onMoreProductsClick }) {
+export function FeaturedCategory() {
   const products = [
     {
       id: 1,
-      name: "Rings",
-      newPrice: 999,
+      name: "Ring",
+      price: 999,
       oldPrice: 1299,
-      image: "/images/products//ring-1.png",
+      image: "images/products/ring-1.png",
       type: "ring",
     },
     {
-      id: 1,
+      id: 2,
       name: "Couple Rings",
-      newPrice: 999,
-      oldPrice: 1299,
-      image: "/images/products/couple-ring.png",
+      price: 1099,
+      oldPrice: 1399,
+      image: "images/products/couple-ring.png",
       type: "ring",
     },
     {
-      id: 1,
-      name: "Earings",
-      newPrice: 999,
-      oldPrice: 1299,
-      image: "/images/products/red-rubi-earring.png",
-      type: "ring",
+      id: 3,
+      name: "Earrings",
+      price: 899,
+      oldPrice: 1199,
+      image: "images/products/red-ruby-earring.png",
+      type: "earring",
     },
   ];
+
   const [currentIndex, setCurrentIndex] = useState(0);
+  const { addItem } = useCart();
 
   const handlePrevious = () => {
     setCurrentIndex((prev) => (prev === 0 ? products.length - 1 : prev - 1));
@@ -48,45 +51,49 @@ export function FeaturedCategory({ onMoreProductsClick }) {
     }
     return visible;
   };
+  
+  const handleAddToCart = (product) => {
+    addItem(product);
+  };
 
   return (
     <div className="relative pb-12 md:py-24 md:pl-12 overflow-x-hidden bg-white">
-      <div className="flex  flex-col lg:flex-row gap-4 lg:gap-12 items-center">
+      <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center">
         {/* Left Content Section */}
         <motion.div
-          className="flex-1 max-w-full p-4 md:p-0 "
+          className="flex-1 max-w-full p-4 md:p-0"
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl md:text-5xl lg:text-7xl font-medium  font-playfair mb-4">
+          <h2 className="text-4xl md:text-5xl lg:text-7xl font-medium font-playfair mb-4">
             Diamonds & Engagement Ring
           </h2>
 
-          <p className="text-base md:text-lg  leading-relaxed mb-6 w-full md:w-4/5">
+          <p className="text-base md:text-lg leading-relaxed mb-6 w-full md:w-4/5">
             Experience the beauty of diamond jewellery and find your perfect
             piece for a special occasion. Find the perfect diamond for any
             special occasion, from engagement rings and wedding bands to
-            anniversary and Christmas gifts{" "}
+            anniversary and Christmas gifts
           </p>
 
-          <motion.button
-            className="bg-gradient-to-r from-primary to-secondary rounded-full px-6 py-2 text-white text-base md:text-lg font-semibold transition-all shadow-2xl  hover:scale-105"
+          <motion.a
+            href="/collections"
+            className="inline-block bg-gradient-to-r from-primary to-secondary rounded-full px-6 py-3 text-white text-base md:text-lg font-semibold transition-all shadow-lg hover:shadow-xl"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            onClick={onMoreProductsClick}
           >
             More Product
-          </motion.button>
+          </motion.a>
         </motion.div>
 
-        {/* Right Products Section */}
-        <div className=" hidden md:block relative  ">
+        {/* Desktop Products Section */}
+        <div className="hidden md:block relative">
           {/* Navigation Buttons */}
-          <div className=" md:absolute -top-16 right-3 flex gap-2 z-10">
+          <div className="md:absolute -top-16 right-3 flex gap-2 z-10">
             <motion.button
-              className=" bg-gradient-to-r from-primary/30 to-secondary/60 hover:from-primary hover:to-secondary  text-white rounded-lg px-3  shadow-lg "
+              className="bg-gradient-to-r from-primary/30 to-secondary/60 hover:from-primary hover:to-secondary text-white rounded-lg px-3 shadow-lg"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               onClick={handlePrevious}
@@ -106,7 +113,7 @@ export function FeaturedCategory({ onMoreProductsClick }) {
             </motion.button>
 
             <motion.button
-              className="bg-gradient-to-r from-primary to-secondary  text-white rounded-lg px-3  shadow-lg "
+              className="bg-gradient-to-r from-primary to-secondary text-white rounded-lg px-3 shadow-lg"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               onClick={handleNext}
@@ -127,54 +134,49 @@ export function FeaturedCategory({ onMoreProductsClick }) {
           </div>
 
           {/* Products Grid */}
-          <div className="relative ">
+          <div className="relative">
             <div className="flex gap-4 lg:gap-6">
               {getVisibleProducts().map((product, index) => (
                 <motion.div
                   key={`${product.id}-${currentIndex}-${index}`}
+                  className="w-[280px] lg:w-[320px] flex-shrink-0"
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.3, delay: index * 0.1 }}
                 >
                   <ProductCardWithPrice
-                    id={product.id}
-                    type={product.type}
-                    name={product.name}
-                    newPrice={product.newPrice}
-                    oldPrice={product.oldPrice}
-                    image={product.image}
-                    onClick={() => product.onClick?.(product)}
+                    product={product}
+                    onAddToCart={handleAddToCart}
                   />
                 </motion.div>
               ))}
             </div>
           </div>
         </div>
-        {/* mobile */}
-        <div className="md:hidden flex flex-col items-center gap-3 w-full px-3 overflow-hidden overflow-y-auto">
-          <div className="w-full ">
-            <div className="flex gap-4">
+
+        {/* Mobile Products Section */}
+        <div className="md:hidden w-full px-4">
+         
+
+          {/* Products Carousel */}
+          <div className="overflow-x-auto scrollbar-  -mx-4 px-4 ">
+          <div className="flex sm:hidden gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-hide">
               {getVisibleProducts().map((product, index) => (
                 <motion.div
                   key={`${product.id}-${currentIndex}-${index}`}
+                  className="w-[280px] min-w-[280px] flex-shrink-0 snap-center mb-4"
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.3, delay: index * 0.1 }}
                 >
                   <ProductCardWithPrice
-                    id={product.id}
-                    type={product.type}
-                    name={product.name}
-                    newPrice={product.newPrice}
-                    oldPrice={product.oldPrice}
-                    image={product.image}
-                    onClick={() => product.onClick?.(product)}
+                    product={product}
+                    onAddToCart={handleAddToCart}
                   />
                 </motion.div>
               ))}
             </div>
           </div>
-
         </div>
       </div>
     </div>

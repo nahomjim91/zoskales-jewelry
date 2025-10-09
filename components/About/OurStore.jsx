@@ -49,14 +49,15 @@ export function OurStore() {
           personalized service and exceptional craftsmanship come together in a
           setting as refined as our jewelry.
         </p>
-        <motion.button
+        <motion.a
+            href="/contact"
           className="bg-gradient-to-r from-primary to-secondary rounded-full px-6 py-2 text-white text-base md:text-lg font-semibold transition-all shadow-2xl hover:scale-105"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           // onClick={onMoreProductsClick}
         >
           Contact Us
-        </motion.button>
+        </motion.a>
       </motion.div>
 
 

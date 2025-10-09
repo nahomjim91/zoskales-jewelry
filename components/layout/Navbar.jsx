@@ -159,7 +159,7 @@ export default function Navbar() {
               My Cart
             </span>
             {mounted && itemCount > 0 && (
-              <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold rounded-full w-6 h-6 flex items-center justify-center">
+              <span className="absolute -top-2 -right-2 bg-white text-primary text-xs font-bold rounded-full w-6 h-6 flex items-center justify-center">
                 {itemCount}
               </span>
             )}
@@ -230,7 +230,7 @@ export default function Navbar() {
             </svg>
             <span className="text-base font-medium">My Cart</span>
              {mounted && itemCount > 0 && (
-          <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold rounded-full w-6 h-6 flex items-center justify-center">
+          <span className="absolute -top-2 -right-2 bg-white text-primary text-xs font-bold rounded-full w-6 h-6 flex items-center justify-center">
             {itemCount}
           </span>
         )}
