@@ -29,7 +29,7 @@ export default function Navbar() {
     { name: "Collections", to: "/collections" },
     { name: "Customization", to: "/customization" },
     { name: "Materials", to: "/materials" },
-    { name: "Contact Us", to: "/contact-us" },
+    { name: "Contact Us", to: "/contact" },
   ];
 
   return (
