@@ -26,7 +26,7 @@ export default function Navbar() {
   const navItems = [
     { name: "Home", to: "/" },
     { name: "About Us", to: "/about" },
-    { name: "Collection", to: "/collection" },
+    { name: "Collections", to: "/collections" },
     { name: "Customization", to: "/customization" },
     { name: "Materials", to: "/materials" },
     { name: "Contact Us", to: "/contact-us" },

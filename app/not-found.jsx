@@ -62,38 +62,38 @@ export default function NotFound() {
           </p>
           <div className="flex flex-wrap justify-center gap-4 text-sm">
             <Link
-              href="/collections/rings"
-              className="text-gray-600 hover:text-primary transition-colors duration-300 px-4 py-2 rounded-md hover:bg-rose-50"
+              href="/collections?category=rings"
+              className="text-gray-600 hover:text-primary transition-colors duration-300 px-4 py-2 rounded-full hover:bg-rose-50"
             >
               Rings
             </Link>
             <Link
-              href="/collections/necklaces"
-              className="text-gray-600 hover:text-primary transition-colors duration-300 px-4 py-2 rounded-md hover:bg-rose-50"
+              href="/collections?category=necklaces"
+              className="text-gray-600 hover:text-primary transition-colors duration-300 px-4 py-2 rounded-full hover:bg-rose-50"
             >
               Necklaces
             </Link>
             <Link
-              href="/collections/earrings"
-              className="text-gray-600 hover:text-primary transition-colors duration-300 px-4 py-2 rounded-md hover:bg-rose-50"
+              href="/collections?category=earrings"
+              className="text-gray-600 hover:text-primary transition-colors duration-300 px-4 py-2 rounded-full hover:bg-rose-50"
             >
               Earrings
             </Link>
             <Link
-              href="/collections/couple-rings"
-              className="text-gray-600 hover:text-primary transition-colors duration-300 px-4 py-2 rounded-md hover:bg-rose-50"
+              href="/collections?category=rings&gender=couple"
+              className="text-gray-600 hover:text-primary transition-colors duration-300 px-4 py-2 rounded-full hover:bg-rose-50"
             >
               Couple Rings
             </Link>
             <Link
               href="/about"
-              className="text-gray-600 hover:text-primary transition-colors duration-300 px-4 py-2 rounded-md hover:bg-rose-50"
+              className="text-gray-600 hover:text-primary transition-colors duration-300 px-4 py-2 rounded-full hover:bg-rose-50"
             >
               About Us
             </Link>
             <Link
               href="/contact"
-              className="text-gray-600 hover:text-primary transition-colors duration-300 px-4 py-2 rounded-md hover:bg-rose-50"
+              className="text-gray-600 hover:text-primary transition-colors duration-300 px-4 py-2 rounded-full hover:bg-rose-50"
             >
               Contact
             </Link>

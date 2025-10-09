@@ -1,9 +1,10 @@
 "use client";
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 import { Heart, ShoppingCart, Filter, X } from "lucide-react";
 import { jewelryData } from "./products";
 import useCart from "@/hooks/useCart";
-import { AnimatePresence , motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 // Configuration constants
 const FILTER_CONFIG = {
@@ -16,7 +17,7 @@ const FILTER_CONFIG = {
 const GENDER_LABELS = {
   Women: "Female",
   Men: "Male",
-  Couple: "Bisexual",
+  Couple: "Couple",
 };
 
 const ITEMS_PER_PAGE = 9;
@@ -84,7 +85,7 @@ const ProductCard = ({
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <div 
+    <div
       className="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-lg transition"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -92,8 +93,16 @@ const ProductCard = ({
       <div className="relative">
         <AnimatePresence mode="wait">
           <motion.img
-            key={isHovered && product.secondImage ? product.secondImage : product.image}
-            src={isHovered && product.secondImage ? product.secondImage : product.image}
+            key={
+              isHovered && product.secondImage
+                ? product.secondImage
+                : product.image
+            }
+            src={
+              isHovered && product.secondImage
+                ? product.secondImage
+                : product.image
+            }
             alt={product.name}
             className="w-full h-48 sm:h-56 lg:h-64 object-cover"
             initial={{ opacity: 0 }}
@@ -152,6 +161,81 @@ export default function Collection() {
   });
   const [currentPage, setCurrentPage] = useState(1);
   const { addItem, openCart } = useCart();
+  const searchParams = useSearchParams();
+
+  // Initialize filters from URL on component mount
+  useEffect(() => {
+    const category = searchParams.get("category");
+    const material = searchParams.get("material");
+    const gender = searchParams.get("gender");
+    const size = searchParams.get("size");
+
+    const newFilters = { ...filters };
+    let hasChanges = false;
+
+    // Handle category
+    if (category) {
+      const categoryMap = {
+        necklaces: "Necklace",
+        rings: "Ring",
+        earrings: "Earrings",
+        bracelets: "Bracelet",
+      };
+      const mappedCategory = categoryMap[category.toLowerCase()];
+      if (mappedCategory && !filters.categories.includes(mappedCategory)) {
+        newFilters.categories = [...newFilters.categories, mappedCategory];
+        hasChanges = true;
+      }
+    }
+
+    // Handle material
+    if (material) {
+      const materialMap = {
+        diamond: "Diamond",
+        ruby: "Ruby",
+        gemstones: "Gemstones",
+        bracelet: "Bracelet",
+      };
+      const mappedMaterial = materialMap[material.toLowerCase()];
+      if (mappedMaterial && !filters.materials.includes(mappedMaterial)) {
+        newFilters.materials = [...newFilters.materials, mappedMaterial];
+        hasChanges = true;
+      }
+    }
+
+    // Handle gender
+    if (gender) {
+      const genderMap = {
+        women: "Women",
+        female: "Women",
+        men: "Men",
+        male: "Men",
+        couple: "Couple",
+        // bisexual: "Couple",
+      };
+      const mappedGender = genderMap[gender.toLowerCase()];
+      if (mappedGender && !filters.genders.includes(mappedGender)) {
+        newFilters.genders = [...newFilters.genders, mappedGender];
+        hasChanges = true;
+      }
+    }
+
+    // Handle size
+    if (size) {
+      const sizeNum = parseInt(size);
+      if (
+        FILTER_CONFIG.sizes.includes(sizeNum) &&
+        !filters.sizes.includes(sizeNum)
+      ) {
+        newFilters.sizes = [...newFilters.sizes, sizeNum];
+        hasChanges = true;
+      }
+    }
+
+    if (hasChanges) {
+      setFilters(newFilters);
+    }
+  }, [searchParams]);
 
   const toggleFavorite = (id) => {
     setFavorites((prev) =>
