@@ -8,6 +8,14 @@ export const metadata = {
   description: "Jewelry Store",
 };
 
+// if (typeof window !== "undefined" && process.env.NODE_ENV === "development") {
+//   window.__REACT_DEVTOOLS_GLOBAL_HOOK__ = {
+//     ...window.__REACT_DEVTOOLS_GLOBAL_HOOK__,
+//     inject: () => {},
+//     onCommitFiberRoot: () => {},
+//     onCommitFiberUnmount: () => {},
+//   };
+// }
 export default function RootLayout({ children }) {
   return (
     <html lang="en">

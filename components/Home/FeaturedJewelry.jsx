@@ -8,8 +8,8 @@ export function FeaturedJewelry() {
         className="flex-1 max-w-full p-4 md:p-0 "
         initial={{ opacity: 0, x: -20 }}
         whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
+        viewport={{ once: false }}
+        transition={{ duration: 0.9 }}
       >
         {" "}
         <h2 className="text-4xl md:text-5xl lg:text-7xl font-medium font-playfair mb-4">

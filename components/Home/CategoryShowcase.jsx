@@ -41,12 +41,39 @@ export default function CategoryShowcase({
       setCurrentIndex((prev) => prev - 1);
     }
   };
-    const handleAddToCart = (product) => {
+  
+  const handleAddToCart = (product) => {
     addItem(product);
   };
 
   const containerWidth = Math.min(300, (products.length * 100) / visible);
   const cardWidth = Math.min(100, 100 / products.length);
+
+  // Animation variants
+  const headerVariants = {
+    hidden: { opacity: 0, y: -30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: [0.25, 0.46, 0.45, 0.94]
+      }
+    }
+  };
+
+  const buttonContainerVariants = {
+    hidden: { opacity: 0, x: 30 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.6,
+        delay: 0.3,
+        ease: "easeOut"
+      }
+    }
+  };
 
   return (
     <div
@@ -63,11 +90,23 @@ export default function CategoryShowcase({
 
       <div className="relative max-w-7xl mx-auto z-10">
         <div className="flex items-center justify-between mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-white font-serif">
+          <motion.h2
+            variants={headerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            className="text-4xl md:text-5xl font-bold text-white font-serif"
+          >
             {title}
-          </h2>
+          </motion.h2>
 
-          <div className="hidden sm:flex gap-4">
+          <motion.div
+            variants={buttonContainerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            className="hidden sm:flex gap-4"
+          >
             <motion.button
               className="bg-white/30 text-white rounded-lg px-3 shadow-lg"
               whileHover={{ scale: 1.1 }}
@@ -109,7 +148,7 @@ export default function CategoryShowcase({
                 />
               </svg>
             </motion.button>
-          </div>
+          </motion.div>
         </div>
 
         <div className="overflow-hidden">

@@ -9,28 +9,8 @@ export default function Loading() {
           </div>
           <div className="relative flex items-center justify-center">
             <div className="bg-gradient-to-br from-[#601616] to-[#3B1F1F] p-6 rounded-full animate-spin-slow shadow-2xl">
-              <svg
-                className="w-24 h-24 text-white"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M12 2L3 7L12 12L21 7L12 2Z"
-                  fill="currentColor"
-                  opacity="0.8"
-                />
-                <path
-                  d="M3 7L12 12V22L3 17V7Z"
-                  fill="currentColor"
-                  opacity="0.6"
-                />
-                <path
-                  d="M21 7L12 12V22L21 17V7Z"
-                  fill="currentColor"
-                  opacity="0.9"
-                />
-              </svg>
+            
+              <img src="/images/logo.png" alt="Logo" className="w-24 h-24" />
             </div>
           </div>
         </div>

@@ -56,29 +56,97 @@ export function FeaturedCategory() {
     addItem(product);
   };
 
+  // Animation variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.1
+      }
+    }
+  };
+
+  const headingVariants = {
+    hidden: { opacity: 0, y: -20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: [0.25, 0.46, 0.45, 0.94]
+      }
+    }
+  };
+
+  const paragraphVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: [0.25, 0.46, 0.45, 0.94]
+      }
+    }
+  };
+
+  const buttonVariants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 0.6,
+        ease: [0.25, 0.46, 0.45, 0.94]
+      }
+    }
+  };
+
+  const navButtonsVariants = {
+    hidden: { opacity: 0, x: 30 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.6,
+        delay: 0.3,
+        ease: "easeOut"
+      }
+    }
+  };
+
   return (
     <div className="relative pb-12 md:py-24 md:pl-12 overflow-x-hidden bg-white">
       <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center">
         {/* Left Content Section */}
         <motion.div
           className="flex-1 max-w-full p-4 md:p-0"
-          initial={{ opacity: 0, x: -20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, margin: "-100px" }}
         >
-          <h2 className="text-4xl md:text-5xl lg:text-7xl font-medium font-playfair mb-4">
+          <motion.h2
+            variants={headingVariants}
+            className="text-4xl md:text-5xl lg:text-7xl font-medium font-playfair mb-4"
+          >
             Diamonds & Engagement Ring
-          </h2>
+          </motion.h2>
 
-          <p className="text-base md:text-lg leading-relaxed mb-6 w-full md:w-4/5">
+          <motion.p
+            variants={paragraphVariants}
+            className="text-base md:text-lg leading-relaxed mb-6 w-full md:w-4/5"
+          >
             Experience the beauty of diamond jewellery and find your perfect
             piece for a special occasion. Find the perfect diamond for any
             special occasion, from engagement rings and wedding bands to
             anniversary and Christmas gifts
-          </p>
+          </motion.p>
 
           <motion.a
+            variants={buttonVariants}
             href="/collections"
             className="inline-block bg-gradient-to-r from-primary to-secondary rounded-full px-6 py-3 text-white text-base md:text-lg font-semibold transition-all shadow-lg hover:shadow-xl"
             whileHover={{ scale: 1.05 }}
@@ -91,7 +159,13 @@ export function FeaturedCategory() {
         {/* Desktop Products Section */}
         <div className="hidden md:block relative">
           {/* Navigation Buttons */}
-          <div className="md:absolute -top-16 right-3 flex gap-2 z-10">
+          <motion.div
+            variants={navButtonsVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: false, margin: "-100px" }}
+            className="md:absolute -top-16 right-3 flex gap-2 z-10"
+          >
             <motion.button
               className="bg-gradient-to-r from-primary/30 to-secondary/60 hover:from-primary hover:to-secondary text-white rounded-lg px-3 shadow-lg"
               whileHover={{ scale: 1.1 }}
@@ -131,7 +205,7 @@ export function FeaturedCategory() {
                 />
               </svg>
             </motion.button>
-          </div>
+          </motion.div>
 
           {/* Products Grid */}
           <div className="relative">
@@ -156,11 +230,9 @@ export function FeaturedCategory() {
 
         {/* Mobile Products Section */}
         <div className="md:hidden w-full px-4">
-         
-
           {/* Products Carousel */}
           <div className="overflow-x-auto scrollbar-  -mx-4 px-4 ">
-          <div className="flex sm:hidden gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-hide">
+            <div className="flex sm:hidden gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-hide">
               {getVisibleProducts().map((product, index) => (
                 <motion.div
                   key={`${product.id}-${currentIndex}-${index}`}

@@ -22,9 +22,9 @@ export default function ImageCollage({ onFollowClick }) {
     "/images/model_poster/StatementDiamondRing.png",
     "/images/model_poster/ThisringisntjustapieceofjewelrytsapromiseaforeverasparklecraftedbyZo.jpg",
     "/images/model_poster/Three-Stone Ruby Ring - No Text.png",
-    "/images/model_poster/💃New earrings from Zoskales = instant confidence upgrade. Love is rare, real, and radiant—just .jpg",
+    "/images/model_poster/NewearringsfromZoskalesinstantconfidenceupgradeLoveisrarerealandradiant—just.jpg",
     "/images/model_poster/1234.jpg",
-    "/images/model_poster/💎Inspired by nature,perfectedbyZoskalesDiamonds.Carryapieceofnaturesbeauty,framedi(1).jpg",
+    "/images/model_poster/inspiredbynatureperfectedbyZoskalesDiamondsCarryapieceofnaturesbeautyframedi.jpg",
   ];
 
   const [displayImages, setDisplayImages] = useState({
