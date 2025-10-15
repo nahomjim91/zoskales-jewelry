@@ -25,7 +25,7 @@ export function OurStory() {
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <img
-            src="/images/products/image (1).png"
+            src={`${process.env.NEXT_PUBLIC_IMAGE_URL}/products/image (1).webp`}
             alt="Woman wearing pearl necklace and earrings"
             className="w-full h-full object-cover"
           />

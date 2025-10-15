@@ -4,27 +4,27 @@ import { Instagram } from "lucide-react";
 
 export default function ImageCollage({ onFollowClick }) {
   const images = [
-    "/images/model_poster/Chandelier Diamond Earrings.png",
-    "/images/model_poster/Diamond Bracelet.png",
-    "/images/model_poster/Diamond Hoop Earrings.png",
-    "/images/model_poster/Diamond Pendant Necklace.png",
-    "/images/model_poster/Diamond Tennis Necklace.png",
-    "/images/model_poster/DiamondV-Necklace-NoText.png",
-    "/images/model_poster/EarwithDiamondDropEarrings-BrownSkin.png",
-    "/images/model_poster/Gold Filigree Ruby Ring - No Text.png",
-    "/images/model_poster/image (11).png",
-    "/images/model_poster/image-4u.png",
-    "/images/model_poster/imagek-6.png",
-    "/images/model_poster/Multi-Layer Diamond Necklace.png",
-    "/images/model_poster/Pearl and Diamond Earrings.png",
-    "/images/model_poster/Ruby Diamond Nature-Inspired Ring.png",
-    "/images/model_poster/Ruby Earrings and Diamond Necklace Set - No Text.png",
-    "/images/model_poster/StatementDiamondRing.png",
-    "/images/model_poster/ThisringisntjustapieceofjewelrytsapromiseaforeverasparklecraftedbyZo.jpg",
-    "/images/model_poster/Three-Stone Ruby Ring - No Text.png",
-    "/images/model_poster/NewearringsfromZoskalesinstantconfidenceupgradeLoveisrarerealandradiant—just.jpg",
-    "/images/model_poster/1234.jpg",
-    "/images/model_poster/inspiredbynatureperfectedbyZoskalesDiamondsCarryapieceofnaturesbeautyframedi.jpg",
+    "/model_poster/Chandelier Diamond Earrings.webp",
+    "/model_poster/Diamond Bracelet.webp",
+    "/model_poster/Diamond Hoop Earrings.webp",
+    "/model_poster/Diamond Pendant Necklace.webp",
+    "/model_poster/Diamond Tennis Necklace.webp",
+    "/model_poster/DiamondV-Necklace-NoText.webp",
+    "/model_poster/EarwithDiamondDropEarrings-BrownSkin.webp",
+    "/model_poster/Gold Filigree Ruby Ring - No Text.webp",
+    "/model_poster/image (11).webp",
+    "/model_poster/image-4u.webp",
+    "/model_poster/imagek-6.webp",
+    "/model_poster/Multi-Layer Diamond Necklace.webp",
+    "/model_poster/Pearl and Diamond Earrings.webp",
+    "/model_poster/Ruby Diamond Nature-Inspired Ring.webp",
+    "/model_poster/Ruby Earrings and Diamond Necklace Set - No Text.webp",
+    "/model_poster/StatementDiamondRing.webp",
+    "/model_poster/ThisringisntjustapieceofjewelrytsapromiseaforeverasparklecraftedbyZo.webp",
+    "/model_poster/Three-Stone Ruby Ring - No Text.webp",
+    "/model_poster/NewearringsfromZoskalesinstantconfidenceupgradeLoveisrarerealandradiant—just.webp",
+    "/model_poster/1234.webp",
+    "/model_poster/inspiredbynatureperfectedbyZoskalesDiamondsCarryapieceofnaturesbeautyframedi.webp",
   ];
 
   const [displayImages, setDisplayImages] = useState({
@@ -81,7 +81,7 @@ export default function ImageCollage({ onFollowClick }) {
             }}
           >
             <img
-              src={src}
+              src={process.env.NEXT_PUBLIC_IMAGE_URL + src}
               alt={`Collage item ${i}`}
               className="w-full h-full object-cover"
             />
@@ -111,7 +111,7 @@ export default function ImageCollage({ onFollowClick }) {
             }}
           >
             <img
-              src={src}
+              src={process.env.NEXT_PUBLIC_IMAGE_URL + src}
               alt={`Collage item ${i}`}
               className="w-full h-full object-cover"
             />
@@ -141,7 +141,7 @@ export default function ImageCollage({ onFollowClick }) {
             }}
           >
             <img
-              src={src}
+              src={process.env.NEXT_PUBLIC_IMAGE_URL + src}
               alt={`Collage item ${i}`}
               className="w-full h-full object-cover"
             />

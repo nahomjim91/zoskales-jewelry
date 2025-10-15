@@ -33,7 +33,7 @@ export function ProductCardWithPrice({ product, onAddToCart }) {
       {/* Image */}
       <div className="flex justify-center items-center h-[180px] sm:h-[220px] mb-4">
         <motion.img
-          src={product.image}
+          src={ process.env.NEXT_PUBLIC_IMAGE_URL + product.image}
           alt={product.name}
           className="w-auto h-full object-contain"
           whileHover={{ scale: 1.05 }}

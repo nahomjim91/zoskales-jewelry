@@ -8,9 +8,9 @@ export function CraftingJewelry() {
       opacity: 1,
       transition: {
         staggerChildren: 0.2,
-        delayChildren: 0.1
-      }
-    }
+        delayChildren: 0.1,
+      },
+    },
   };
 
   const headingVariants = {
@@ -20,9 +20,9 @@ export function CraftingJewelry() {
       y: 0,
       transition: {
         duration: 0.8,
-        ease: [0.25, 0.46, 0.45, 0.94]
-      }
-    }
+        ease: [0.25, 0.46, 0.45, 0.94],
+      },
+    },
   };
 
   const paragraphVariants = {
@@ -32,9 +32,9 @@ export function CraftingJewelry() {
       y: 0,
       transition: {
         duration: 0.6,
-        ease: [0.25, 0.46, 0.45, 0.94]
-      }
-    }
+        ease: [0.25, 0.46, 0.45, 0.94],
+      },
+    },
   };
 
   const buttonVariants = {
@@ -44,9 +44,9 @@ export function CraftingJewelry() {
       scale: 1,
       transition: {
         duration: 0.6,
-        ease: [0.25, 0.46, 0.45, 0.94]
-      }
-    }
+        ease: [0.25, 0.46, 0.45, 0.94],
+      },
+    },
   };
 
   const imageVariants = {
@@ -58,9 +58,9 @@ export function CraftingJewelry() {
         y: 0,
         transition: {
           duration: 0.8,
-          ease: "easeOut"
-        }
-      }
+          ease: "easeOut",
+        },
+      },
     },
     bottomLeft: {
       hidden: { opacity: 0, x: -20, y: 50 },
@@ -70,9 +70,9 @@ export function CraftingJewelry() {
         y: 0,
         transition: {
           duration: 0.8,
-          ease: "easeOut"
-        }
-      }
+          ease: "easeOut",
+        },
+      },
     },
     topRight: {
       hidden: { opacity: 0, x: 50, y: -20 },
@@ -82,9 +82,9 @@ export function CraftingJewelry() {
         y: 0,
         transition: {
           duration: 0.8,
-          ease: "easeOut"
-        }
-      }
+          ease: "easeOut",
+        },
+      },
     },
     bottomRight: {
       hidden: { opacity: 0, x: 50, y: 50 },
@@ -94,10 +94,10 @@ export function CraftingJewelry() {
         y: 0,
         transition: {
           duration: 0.8,
-          ease: "easeOut"
-        }
-      }
-    }
+          ease: "easeOut",
+        },
+      },
+    },
   };
 
   return (
@@ -118,7 +118,7 @@ export function CraftingJewelry() {
             variants={imageVariants.topLeft}
           >
             <img
-              src={"/images/Face with Hands Showing Rings - Brown Skin.png"}
+              src={`${process.env.NEXT_PUBLIC_IMAGE_URL}/Face with Hands Showing Rings - Brown Skin.webp`}
               alt="Jewelry"
               className="w-full h-full object-cover"
             />
@@ -130,7 +130,7 @@ export function CraftingJewelry() {
             variants={imageVariants.bottomLeft}
           >
             <img
-              src={"/images/Hand with Diamond and Ruby Rings - Brown Skin.png"}
+              src={`${process.env.NEXT_PUBLIC_IMAGE_URL}/Hand with Diamond and Ruby Rings - Brown Skin.webp`}
               alt="Jewelry"
               className="w-full h-full object-cover"
             />
@@ -145,9 +145,7 @@ export function CraftingJewelry() {
             variants={imageVariants.topRight}
           >
             <img
-              src={
-                "/images/Ear with Blue Earrings and Diamond Necklace - Brown Skin.png"
-              }
+              src={`${process.env.NEXT_PUBLIC_IMAGE_URL}/Ear with Blue Earrings and Diamond Necklace - Brown Skin.webp`}
               alt="Jewelry"
               className="w-full h-full object-cover"
             />
@@ -159,7 +157,7 @@ export function CraftingJewelry() {
             variants={imageVariants.bottomRight}
           >
             <img
-              src={"/images/Ear with Diamond Drop Earrings - Brown Skin.png"}
+              src={`${process.env.NEXT_PUBLIC_IMAGE_URL}/Ear with Diamond Drop Earrings - Brown Skin.webp`}
               alt="Jewelry"
               className="w-full h-full object-cover"
             />
@@ -181,7 +179,7 @@ export function CraftingJewelry() {
         >
           Crafting Jewelery Since 1929
         </motion.h2>
-        
+
         <motion.p
           variants={paragraphVariants}
           className="text-base md:text-lg leading-relaxed mb-6 w-full"
@@ -192,7 +190,7 @@ export function CraftingJewelry() {
           if you really care about them, you're going to want to put some
           thought into it
         </motion.p>
-        
+
         <motion.a
           variants={buttonVariants}
           href="/collections"

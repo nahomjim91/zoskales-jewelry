@@ -50,7 +50,7 @@ export default function Footer() {
     <div
       className="relative py-16 md:py-20 px-4 md:px-6 lg:px-8 overflow-hidden"
       style={{
-        backgroundImage: "url('/images/bg/bg-cloth.png')",
+        backgroundImage: `url('${process.env.NEXT_PUBLIC_IMAGE_URL}/bg/bg-cloth.webp')`,
         backgroundPosition: "center",
         backgroundSize: "cover",
         backgroundAttachment: "fixed",
@@ -72,7 +72,7 @@ export default function Footer() {
           <div className="lg:col-span-5">
             <motion.div variants={itemVariants} className="mb-6">
               <img
-                src="/images/logo.png"
+                src={`${process.env.NEXT_PUBLIC_IMAGE_URL}/logo.webp`}
                 alt="ZOSKALES Logo"
                 className="h-10 md:h-14 w-auto brightness-0 invert"
               />

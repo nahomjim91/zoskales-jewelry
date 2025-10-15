@@ -8,9 +8,9 @@ export default function InviteClient() {
       opacity: 1,
       transition: {
         staggerChildren: 0.3,
-        delayChildren: 0.2
-      }
-    }
+        delayChildren: 0.2,
+      },
+    },
   };
 
   const headingVariants = {
@@ -20,9 +20,9 @@ export default function InviteClient() {
       y: 0,
       transition: {
         duration: 0.8,
-        ease: [0.25, 0.46, 0.45, 0.94]
-      }
-    }
+        ease: [0.25, 0.46, 0.45, 0.94],
+      },
+    },
   };
 
   const subheadingVariants = {
@@ -32,9 +32,9 @@ export default function InviteClient() {
       y: 0,
       transition: {
         duration: 0.8,
-        ease: [0.25, 0.46, 0.45, 0.94]
-      }
-    }
+        ease: [0.25, 0.46, 0.45, 0.94],
+      },
+    },
   };
 
   const buttonVariants = {
@@ -44,9 +44,9 @@ export default function InviteClient() {
       scale: 1,
       transition: {
         duration: 0.6,
-        ease: [0.25, 0.46, 0.45, 0.94]
-      }
-    }
+        ease: [0.25, 0.46, 0.45, 0.94],
+      },
+    },
   };
 
   const cornerVariants = {
@@ -57,9 +57,9 @@ export default function InviteClient() {
       transition: {
         duration: 0.8,
         delay: 0.5,
-        ease: "easeOut"
-      }
-    }
+        ease: "easeOut",
+      },
+    },
   };
 
   return (
@@ -69,7 +69,7 @@ export default function InviteClient() {
         <motion.div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: "url('/images/image (10).png')",
+            backgroundImage: `url('${process.env.NEXT_PUBLIC_IMAGE_URL}/image (10).webp')`,
             backgroundAttachment: "fixed",
           }}
           initial={{ scale: 1.1, opacity: 0 }}
@@ -112,7 +112,10 @@ export default function InviteClient() {
               variants={buttonVariants}
               href="/contact"
               className="inline-block bg-white rounded-full px-8 md:px-12 py-3 md:py-4 text-primary text-base md:text-lg font-semibold transition-all shadow-2xl"
-              whileHover={{ scale: 1.05, boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.5)" }}
+              whileHover={{
+                scale: 1.05,
+                boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.5)",
+              }}
               whileTap={{ scale: 0.95 }}
             >
               Contact Us

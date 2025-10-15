@@ -82,7 +82,7 @@ export default function Cart() {
                       {/* Product Image */}
                       <div className="w-20 h-20 sm:w-24 sm:h-24 bg-white rounded-lg overflow-hidden flex-shrink-0">
                         <img
-                          src={`/${item.image}`}
+                          src={process.env.NEXT_PUBLIC_IMAGE_URL + item.image}
                           alt={item.name}
                           className="w-full h-full object-cover"
                         />

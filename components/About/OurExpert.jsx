@@ -8,9 +8,9 @@ export function OurExpert() {
       opacity: 1,
       transition: {
         staggerChildren: 0.3,
-        delayChildren: 0.2
-      }
-    }
+        delayChildren: 0.2,
+      },
+    },
   };
 
   const itemVariants = {
@@ -20,9 +20,9 @@ export function OurExpert() {
       y: 0,
       transition: {
         duration: 0.8,
-        ease: [0.25, 0.46, 0.45, 0.94]
-      }
-    }
+        ease: [0.25, 0.46, 0.45, 0.94],
+      },
+    },
   };
 
   const imageVariants = {
@@ -32,9 +32,9 @@ export function OurExpert() {
       scale: 1,
       transition: {
         duration: 1,
-        ease: [0.25, 0.46, 0.45, 0.94]
-      }
-    }
+        ease: [0.25, 0.46, 0.45, 0.94],
+      },
+    },
   };
 
   return (
@@ -67,7 +67,7 @@ export function OurExpert() {
             <motion.img
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.6, ease: "easeOut" }}
-              src="/images/OurExpert.png"
+              src={`${process.env.NEXT_PUBLIC_IMAGE_URL}/OurExpert.webp`}
               alt="Jewelry experts consulting with clients in elegant showroom"
               className="w-full h-auto object-cover"
             />

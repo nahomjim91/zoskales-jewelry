@@ -8,22 +8,22 @@ export default function ClientTestimonials() {
     {
       quote: "Get The Latest Beauty Secrets And Trends. Sign Up For Our Newsletter And Stay Informed About All Things Beauty.",
       author: "Selihom Kidane",
-      image: "/images/products/DiamondRing.png"
+      image: "/products/DiamondRing.webp"
     },
     {
       quote: "The craftsmanship and attention to detail in every piece is absolutely stunning. My engagement ring exceeded all expectations.",
       author: "Sarah Mitchell",
-      image: "/images/model_poster/StatementDiamondRing.png"
+      image: "/model_poster/StatementDiamondRing.webp"
     },
     {
       quote: "Working with their team was a dream. They helped me design a custom necklace that perfectly captured my vision.",
       author: "James Chen",
-      image: "/images/products/image11.png"
+      image: "/products/image11.webp"
     },
     {
       quote: "The quality and artistry of their jewelry is unmatched. Every piece tells a story and becomes a cherished heirloom.",
       author: "Isabella Romano",
-      image: "/images/products/DiamondPendantNecklaceinBurgundyBox.png"
+      image: "/products/DiamondPendantNecklaceinBurgundyBox.webp"
     }
   ];
 
@@ -86,7 +86,7 @@ export default function ClientTestimonials() {
                 index === activeIndex ? 'opacity-100' : 'opacity-0'
               }`}
               style={{
-                backgroundImage: `url(${testimonial.image})`,
+                backgroundImage: `url(${process.env.NEXT_PUBLIC_IMAGE_URL+testimonial.image})`,
                 backgroundPosition: "center",
                 backgroundSize: "cover",
                 backgroundAttachment: "fixed",

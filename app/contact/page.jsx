@@ -13,7 +13,7 @@ export default function About() {
       <div
         className="relative min-h-screen overflow-x-hidden w-full flex items-center justify-center"
         style={{
-          backgroundImage: "url('/images/OurStore.png')",
+          backgroundImage: `url('${process.env.NEXT_PUBLIC_IMAGE_URL}/OurStore.webp')`,
           backgroundPosition: "center",
           backgroundSize: "cover",
           backgroundAttachment: "fixed",

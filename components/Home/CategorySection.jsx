@@ -9,21 +9,21 @@ export default function CategorySection() {
       id: 1,
       type: "rings",
       name: "Rings",
-      image: "/images/products/ring-6.png",
+      image: "/products/ring-6.webp",
       link: "/collections?category=rings"
     },
     {
       id: 2,
       type: "couple-rings",
       name: "Couple Rings",
-      image: "/images/products/couple-ring.png",
+      image: "/products/couple-ring.webp",
       link: "/collections?category=rings&gender=couple"
     },
     {
       id: 3,
       type: "earrings",
       name: "Earrings",
-      image: "/images/products/red-rubi-earring.png",
+      image: "/products/red-rubi-earring.webp",
       link: "/collections?category=earrings&material=ruby"
     },
   ];
@@ -47,7 +47,7 @@ export default function CategorySection() {
                 id={category.id}
                 type={category.type}
                 name={category.name}
-                image={category.image}
+                image= {process.env.NEXT_PUBLIC_IMAGE_URL + category.image}
                 link={category.link}
               />
             </motion.div>

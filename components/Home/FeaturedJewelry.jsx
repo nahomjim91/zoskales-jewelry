@@ -24,7 +24,7 @@ export function FeaturedJewelry() {
           Christmas gifts{" "}
         </p>{" "}
         <motion.a
-        href="/collections"
+          href="/collections"
           className="bg-gradient-to-r from-primary to-secondary rounded-full px-6 py-2 text-white text-base md:text-lg font-semibold transition-all shadow-2xl hover:scale-105"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
@@ -35,39 +35,39 @@ export function FeaturedJewelry() {
       </motion.div>
 
       {/* Right Products Section */}
-    <div className="flex-1 flex gap-6">
-  {/* First Image - fade in from top-left */}
-  <motion.div
-    className="flex-1 rounded-2xl overflow-hidden shadow-md"
-    initial={{ opacity: 0, x: -50, y: -50 }}   // top-left
-    whileInView={{ opacity: 1, x: 0, y: 0 }}   // center
-    exit={{ opacity: 0, x: -50, y: -50 }}      // fade out same direction
-    viewport={{ once: false, amount: 0.2 }}    // animate each time it scrolls in
-    transition={{ duration: 0.8, ease: "easeOut" }}
-  >
-    <img
-      src="/images/imagek-6.png"
-      alt="Woman wearing pearl necklace and earrings"
-      className="w-full h-full object-cover"
-    />
-  </motion.div>
+      <div className="flex-1 flex gap-6">
+        {/* First Image - fade in from top-left */}
+        <motion.div
+          className="flex-1 rounded-2xl overflow-hidden shadow-md"
+          initial={{ opacity: 0, x: -50, y: -50 }} // top-left
+          whileInView={{ opacity: 1, x: 0, y: 0 }} // center
+          exit={{ opacity: 0, x: -50, y: -50 }} // fade out same direction
+          viewport={{ once: false, amount: 0.2 }} // animate each time it scrolls in
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
+          <img
+            src={`${process.env.NEXT_PUBLIC_IMAGE_URL}/imagek-6.webp`}
+            alt="Woman wearing pearl necklace and earrings"
+            className="w-full h-full object-cover"
+          />
+        </motion.div>
 
-  {/* Second Image - fade in from bottom-right */}
-  <motion.div
-    className="flex-1 rounded-2xl overflow-hidden shadow-md"
-    initial={{ opacity: 0, x: 50, y: 50 }}     // bottom-right
-    whileInView={{ opacity: 1, x: 0, y: 0 }}   // center
-    exit={{ opacity: 0, x: 50, y: 50 }}        // fade out same direction
-    viewport={{ once: false, amount: 0.2 }}
-    transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-  >
-    <img
-      src="/images/image-4.png"
-      alt="Hand with diamond ring and turquoise necklace"
-      className="w-full h-full object-cover"
-    />
-  </motion.div>
-</div>
+        {/* Second Image - fade in from bottom-right */}
+        <motion.div
+          className="flex-1 rounded-2xl overflow-hidden shadow-md"
+          initial={{ opacity: 0, x: 50, y: 50 }} // bottom-right
+          whileInView={{ opacity: 1, x: 0, y: 0 }} // center
+          exit={{ opacity: 0, x: 50, y: 50 }} // fade out same direction
+          viewport={{ once: false, amount: 0.2 }}
+          transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+        >
+          <img
+            src={`${process.env.NEXT_PUBLIC_IMAGE_URL}/image-4.webp`}
+            alt="Hand with diamond ring and turquoise necklace"
+            className="w-full h-full object-cover"
+          />
+        </motion.div>
+      </div>
     </div>
   );
 }

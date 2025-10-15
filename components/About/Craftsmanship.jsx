@@ -4,7 +4,7 @@ export function Craftsmanship() {
   return (
     <div
       style={{
-        backgroundImage: "url('/images/bg/bg-cloth.png')",
+        backgroundImage: `url('${process.env.NEXT_PUBLIC_IMAGE_URL}/bg/bg-cloth.webp')`,
         backgroundPosition: "center",
         backgroundSize: "cover",
         backgroundAttachment: "fixed",
@@ -25,7 +25,7 @@ export function Craftsmanship() {
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <img
-              src="/images/Diamond Jewelry Design Sketching.png"
+              src={`${process.env.NEXT_PUBLIC_IMAGE_URL}/Diamond Jewelry Design Sketching.webp`}
               alt="Jewelry design sketching"
               className="w-full h-full object-cover"
             />
@@ -39,7 +39,7 @@ export function Craftsmanship() {
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
           >
             <img
-              src="/images/Final Diamond Jewelry Process 4_5.png"
+              src={`${process.env.NEXT_PUBLIC_IMAGE_URL}/Final Diamond Jewelry Process 4_5.webp`}
               alt="Final diamond jewelry crafting"
               className="w-full h-full object-cover"
             />

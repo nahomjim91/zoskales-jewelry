@@ -9,8 +9,11 @@ export default function Loading() {
           </div>
           <div className="relative flex items-center justify-center">
             <div className="bg-gradient-to-br from-[#601616] to-[#3B1F1F] p-6 rounded-full animate-spin-slow shadow-2xl">
-            
-              <img src="/images/logo.png" alt="Logo" className="w-24 h-24" />
+              <img
+                src={`${process.env.NEXT_PUBLIC_IMAGE_URL}/logo.webp`}
+                alt="Logo"
+                className="w-24 h-24"
+              />
             </div>
           </div>
         </div>
@@ -26,9 +29,18 @@ export default function Loading() {
 
         {/* Animated dots */}
         <div className="flex justify-center gap-2">
-          <div className="w-3 h-3 bg-[#601616] rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></div>
-          <div className="w-3 h-3 bg-[#3B1F1F] rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></div>
-          <div className="w-3 h-3 bg-[#601616] rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></div>
+          <div
+            className="w-3 h-3 bg-[#601616] rounded-full animate-bounce"
+            style={{ animationDelay: "0ms" }}
+          ></div>
+          <div
+            className="w-3 h-3 bg-[#3B1F1F] rounded-full animate-bounce"
+            style={{ animationDelay: "150ms" }}
+          ></div>
+          <div
+            className="w-3 h-3 bg-[#601616] rounded-full animate-bounce"
+            style={{ animationDelay: "300ms" }}
+          ></div>
         </div>
 
         {/* Progress bar */}

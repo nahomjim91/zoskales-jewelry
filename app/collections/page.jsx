@@ -100,8 +100,8 @@ const ProductCard = ({
             }
             src={
               isHovered && product.secondImage
-                ? product.secondImage
-                : product.image
+                ?process.env.NEXT_PUBLIC_IMAGE_URL + product.secondImage
+                :process.env.NEXT_PUBLIC_IMAGE_URL + product.image
             }
             alt={product.name}
             className="w-full h-48 sm:h-56 lg:h-64 object-cover"

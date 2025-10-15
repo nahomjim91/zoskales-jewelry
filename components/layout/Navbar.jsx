@@ -58,7 +58,7 @@ export default function Navbar() {
             className="bg-gradient-to-r from-primary via-secondary to-secondary rounded-br-full rounded-tr-full px-4 sm:px-6 py-2 shadow-2xl transition-all duration-200 flex items-center"
           >
             <img
-              src="/images/logo.png"
+                src={`${process.env.NEXT_PUBLIC_IMAGE_URL}/logo.webp`}
               alt="Logo"
               className="w-8 h-8 sm:w-10 sm:h-10"
             />

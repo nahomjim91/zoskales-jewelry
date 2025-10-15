@@ -70,31 +70,31 @@ export default function ContactForm() {
       opacity: 1,
       transition: {
         staggerChildren: 0.1,
-        delayChildren: 0.2
-      }
-    }
+        delayChildren: 0.2,
+      },
+    },
   };
 
   const itemVariants = {
-    hidden: { 
-      opacity: 0, 
-      x: -20 
+    hidden: {
+      opacity: 0,
+      x: -20,
     },
     visible: {
       opacity: 1,
       x: 0,
       transition: {
         duration: 0.5,
-        ease: "easeOut"
-      }
-    }
+        ease: "easeOut",
+      },
+    },
   };
 
   const imageVariants = {
-    hidden: { 
-      opacity: 0, 
+    hidden: {
+      opacity: 0,
       scale: 0.95,
-      x: 20
+      x: 20,
     },
     visible: {
       opacity: 1,
@@ -102,9 +102,9 @@ export default function ContactForm() {
       x: 0,
       transition: {
         duration: 0.8,
-        ease: "easeOut"
-      }
-    }
+        ease: "easeOut",
+      },
+    },
   };
 
   return (
@@ -112,14 +112,14 @@ export default function ContactForm() {
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
           {/* Form Section */}
-          <motion.div 
+          <motion.div
             className="w-full"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={containerVariants}
           >
-            <motion.h2 
+            <motion.h2
               className="text-4xl font-playfair mb-8 text-primary"
               initial={{ opacity: 0, y: -20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -232,7 +232,7 @@ export default function ContactForm() {
               </motion.button>
 
               {submitStatus && (
-                <motion.p 
+                <motion.p
                   className="text-green-600 text-sm mt-2"
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -245,7 +245,7 @@ export default function ContactForm() {
           </motion.div>
 
           {/* Image Section */}
-          <motion.div 
+          <motion.div
             className="w-full h-full"
             initial="hidden"
             whileInView="visible"
@@ -253,7 +253,7 @@ export default function ContactForm() {
             variants={imageVariants}
           >
             <motion.img
-              src="/images/ClientConsulation.png"
+              src={`${process.env.NEXT_PUBLIC_IMAGE_URL}/ClientConsulation.webp`}
               alt="Jewelry consultation"
               className="w-full h-full object-cover rounded-lg shadow-lg"
               whileHover={{ scale: 1.03 }}

@@ -10,7 +10,7 @@ export function FeaturedCategory() {
       name: "Ring",
       price: 999,
       oldPrice: 1299,
-      image: "images/products/ring-1.png",
+      image: "/products/ring-1.webp",
       type: "ring",
     },
     {
@@ -18,7 +18,7 @@ export function FeaturedCategory() {
       name: "Couple Rings",
       price: 1099,
       oldPrice: 1399,
-      image: "images/products/couple-ring.png",
+      image: "/products/couple-ring.webp",
       type: "ring",
     },
     {
@@ -26,7 +26,7 @@ export function FeaturedCategory() {
       name: "Earrings",
       price: 899,
       oldPrice: 1199,
-      image: "images/products/red-ruby-earring.png",
+      image: "/products/red-rubi-earring.webp",
       type: "earring",
     },
   ];

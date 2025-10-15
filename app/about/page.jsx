@@ -14,7 +14,7 @@ return (
     <div
       className="relative min-h-screen overflow-x-hidden w-full flex items-center justify-center"
       style={{
-        backgroundImage: "url('/images/bg/diamond_wedding_rings.png')",
+        backgroundImage: `url('${process.env.NEXT_PUBLIC_IMAGE_URL}/bg/diamond_wedding_rings.webp')`,
         backgroundPosition: "center",
         backgroundSize: "cover",
         backgroundAttachment: "fixed",

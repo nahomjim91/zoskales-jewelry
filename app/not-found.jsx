@@ -13,7 +13,7 @@ export default function NotFound() {
           <div className="relative flex items-center justify-center">
             <div className="bg-primary p-6 rounded-full">
               <img 
-                src="/images/logo.png" 
+                src={`${process.env.NEXT_PUBLIC_IMAGE_URL}/logo.webp`}
                 alt="Logo" 
                 className="w-24 h-24 object-contain"
               />

@@ -13,7 +13,7 @@ export default function Home() {
     <div
       className="relative min-h-screen overflow-x-lip w-full  "
       style={{
-        backgroundImage: "url('/images/bg/diamond_earrings.png')",
+        backgroundImage: `url('${process.env.NEXT_PUBLIC_IMAGE_URL}/bg/diamond_earrings.webp')`,
         backgroundPosition: "center",
         backgroundSize: "cover",
         backgroundAttachment: "fixed",

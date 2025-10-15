@@ -106,7 +106,7 @@ export default function Newsletter() {
   };
 
   return (
-    <div className="min-h-screen bg-neutral-100 p-4 md:p-8 lg:p-10">
+    <div className="md:min-h-screen bg-neutral-100 p-4 md:p-8 lg:p-10">
       <motion.div
         className="relative h-[600px] md:h-[700px] lg:h-[800px] w-full rounded-2xl overflow-hidden shadow-2xl"
         initial={{ opacity: 0, scale: 1 }}
@@ -118,7 +118,7 @@ export default function Newsletter() {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: "url('/images/model_poster/image.png')",
+            backgroundImage: `url('${process.env.NEXT_PUBLIC_IMAGE_URL}/model_poster/image.webp')`,
             backgroundAttachment: "fixed",
           }}
         >
