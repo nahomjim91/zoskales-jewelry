@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import { db } from '@/lib/firebase';
 
-const SERVER_URL =  'http://localhost:4000';
+const SERVER_URL =  process.env.NEXT_PUBLIC_SERVER_URL;
 
 export const useProductUpload = () => {
   const [loading, setLoading] = useState(false);
