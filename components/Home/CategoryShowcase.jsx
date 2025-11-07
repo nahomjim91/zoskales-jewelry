@@ -79,7 +79,7 @@ export default function CategoryShowcase({
     <div
       className="relative py-16 px-6 overflow-hidden"
       style={{
-        backgroundImage: `url('${process.env.NEXT_PUBLIC_IMAGE_URL}/bg/bg-cloth.webp')`,
+        backgroundImage: `url('/images/bg/bg-cloth.png')`,
         backgroundPosition: "center",
         backgroundSize: "cover",
         backgroundAttachment: "fixed",
