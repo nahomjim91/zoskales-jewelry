@@ -1,7 +1,9 @@
+import { useParallaxBackground } from "@/hooks/useParallaxBackground";
 import { motion } from "framer-motion";
 import { Calendar } from "lucide-react";
 
 export default function ConsultationBooking() {
+  const {isIOS} = useParallaxBackground();
   const handleScheduleCall = () => {
     window.location.href = "tel:+251115156585";
   };
@@ -12,7 +14,7 @@ export default function ConsultationBooking() {
         backgroundImage: `url('/images/bg/bg-cloth.png')`,
         backgroundPosition: "center",
         backgroundSize: "cover",
-        backgroundAttachment: "fixed",
+        ...(isIOS ? {} : { backgroundAttachment: "fixed" }),
       }}
     >
       <div className="relative flex flex-col md:flex-row items-center justify-center px-6 md:px-12 lg:px-20 py-12">

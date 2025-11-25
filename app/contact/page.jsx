@@ -5,19 +5,18 @@ import BoutiqueInfo from "@/components/Contact/BoutiqueInfo";
 import ConsultationBooking from "@/components/Contact/ConsultationBooking";
 import ContactForm from "@/components/Contact/ContactForm";
 import FindBoutique from "@/components/Contact/FindBoutique";
+import { useParallaxBackground } from "@/hooks/useParallaxBackground";
 import { motion } from "framer-motion";
 
 export default function About() {
+  const { backgroundStyle, isIOS } = useParallaxBackground(
+    `${process.env.NEXT_PUBLIC_IMAGE_URL}/OurStore.webp`
+  );
   return (
     <>
       <div
         className="relative min-h-screen overflow-x-hidden w-full flex items-center justify-center"
-        style={{
-          backgroundImage: `url('${process.env.NEXT_PUBLIC_IMAGE_URL}/OurStore.webp')`,
-          backgroundPosition: "center",
-          backgroundSize: "cover",
-          backgroundAttachment: "fixed",
-        }}
+        style={backgroundStyle}
       >
         {/* Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-primary to-secondary opacity-60"></div>
