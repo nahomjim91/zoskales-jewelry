@@ -7,17 +7,18 @@ import { FeaturedJewelry } from "@/components/Home/FeaturedJewelry";
 import ImageCollage from "@/components/Home/ImageCollage";
 import Newslatter from "@/components/Home/Newslatter";
 import { motion } from "framer-motion";
+import { useParallaxBackground } from '@/hooks/useParallaxBackground';
+
+
 
 export default function Home() {
+    const { backgroundStyle, isIOS } = useParallaxBackground(
+    '/images/bg/diamond_earrings.png'
+  );
   return (
     <div
       className="relative min-h-screen overflow-x-lip w-full  "
-      style={{
-        backgroundImage: `url('/images/bg/diamond_earrings.png')`,
-        backgroundPosition: "center",
-        backgroundSize: "cover",
-        backgroundAttachment: "fixed",
-      }}
+      style={backgroundStyle}
     >
       {/* Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-r from-primary to-secondary opacity-30"></div>

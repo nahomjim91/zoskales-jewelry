@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { jewelryData } from "@/app/collections/products";
 import useCart from "@/hooks/useCart";
 import { ProductCardWithPrice } from "../cards/ProductCard";
+import { useParallaxBackground } from "@/hooks/useParallaxBackground";
 
 export default function CategoryShowcase({
   title = "Find The Perfect Diamond For",
@@ -15,7 +16,9 @@ export default function CategoryShowcase({
     })
     .slice(0, 10);
 
-
+  const { backgroundStyle, isIOS } = useParallaxBackground(
+    '/images/bg/bg-cloth.png'
+  );
   const { addItem } = useCart();
 
   const [visible, setVisible] = useState(3);
@@ -78,12 +81,7 @@ export default function CategoryShowcase({
   return (
     <div
       className="relative py-16 px-6 overflow-hidden"
-      style={{
-        backgroundImage: `url('/images/bg/bg-cloth.png')`,
-        backgroundPosition: "center",
-        backgroundSize: "cover",
-        backgroundAttachment: "fixed",
-      }}
+      style={backgroundStyle}
     >
       {/* Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-amber-900/40 via-amber-800/30 to-amber-700/40 z-0"></div>

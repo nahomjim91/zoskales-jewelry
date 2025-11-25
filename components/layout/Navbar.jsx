@@ -101,7 +101,7 @@ export default function Navbar() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.7, ease: "easeOut" }}
         >
-          <div className="bg-gradient-to-r from-primary to-secondary rounded-full px-8 xl:px-12 py-3 xl:py-4 shadow-2xl border border-[#4a1010]">
+          <div className="bg-gradient-to-r from-primary to-secondary rounded-full px-8 xl:px-12 py-3 xl:py-4 shadow-2xl ">
             <ul className="flex items-center gap-6 xl:gap-12 text-white text-sm xl:text-base font-medium">
               {navItems.map((item, index) => (
                 <motion.li
@@ -139,7 +139,7 @@ export default function Navbar() {
         >
           <button
             onClick={openCart}
-            className="bg-gradient-to-r from-primary via-primary to-secondary rounded-bl-full rounded-tl-full px-4 py-3 xl:py-4 shadow-2xl transition-all duration-200 flex items-center gap-2.5 text-white border border-[#4a1010] relative"
+            className="bg-gradient-to-r from-primary via-primary to-secondary rounded-bl-full rounded-tl-full px-4 py-3 xl:py-4 shadow-2xl transition-all duration-200 flex items-center gap-2.5 text-white  relative"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -206,7 +206,7 @@ export default function Navbar() {
               openCart();
               setIsMobileMenuOpen(false);
             }}
-            className="w-full bg-gradient-to-r from-primary via-primary to-secondary rounded-full px-6 py-4 shadow-2xl transition-all duration-200 flex items-center justify-center gap-2.5 text-white border border-[#4a1010] mt-6 relative"
+            className="w-full bg-gradient-to-r from-primary via-primary to-secondary rounded-full px-6 py-4 shadow-2xl transition-all duration-200 flex items-center justify-center gap-2.5 text-white mt-6 relative"
             initial={{ opacity: 0, y: 20 }}
             animate={
               isMobileMenuOpen ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }

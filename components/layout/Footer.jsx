@@ -1,8 +1,12 @@
 "use client";
 import { motion } from "framer-motion";
 import { Facebook, Instagram, Mail, Phone, MapPin } from "lucide-react";
+import { useParallaxBackground } from '@/hooks/useParallaxBackground';
 
 export default function Footer() {
+   const { backgroundStyle, isIOS } = useParallaxBackground(
+    '/images/bg/bg-cloth.png'
+  );
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -49,12 +53,7 @@ export default function Footer() {
   return (
     <div
       className="relative py-16 md:py-20 px-4 md:px-6 lg:px-8 overflow-hidden"
-      style={{
-        backgroundImage: `url('/images/bg/bg-cloth.png')`,
-        backgroundPosition: "center",
-        backgroundSize: "cover",
-        backgroundAttachment: "fixed",
-      }}
+      style={backgroundStyle}
     >
       {/* Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-amber-900/40 via-amber-800/30 to-amber-700/40 z-0"></div>

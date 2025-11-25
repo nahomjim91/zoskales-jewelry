@@ -1,9 +1,13 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { useParallaxBackground } from "@/hooks/useParallaxBackground";
 
 export default function Newsletter() {
   const [email, setEmail] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const { backgroundStyle, isIOS } = useParallaxBackground(
+    `${process.env.NEXT_PUBLIC_IMAGE_URL}/model_poster/image.webp`
+  );
 
   const handleSubmit = () => {
     if (email && email.includes("@")) {
@@ -22,9 +26,9 @@ export default function Newsletter() {
       opacity: 1,
       transition: {
         staggerChildren: 0.2,
-        delayChildren: 0.1
-      }
-    }
+        delayChildren: 0.1,
+      },
+    },
   };
 
   const headingVariants = {
@@ -34,9 +38,9 @@ export default function Newsletter() {
       y: 0,
       transition: {
         duration: 0.8,
-        ease: [0.25, 0.46, 0.45, 0.94]
-      }
-    }
+        ease: [0.25, 0.46, 0.45, 0.94],
+      },
+    },
   };
 
   const paragraphVariants = {
@@ -46,9 +50,9 @@ export default function Newsletter() {
       y: 0,
       transition: {
         duration: 0.6,
-        ease: [0.25, 0.46, 0.45, 0.94]
-      }
-    }
+        ease: [0.25, 0.46, 0.45, 0.94],
+      },
+    },
   };
 
   const formVariants = {
@@ -58,9 +62,9 @@ export default function Newsletter() {
       scale: 1,
       transition: {
         duration: 0.6,
-        ease: [0.25, 0.46, 0.45, 0.94]
-      }
-    }
+        ease: [0.25, 0.46, 0.45, 0.94],
+      },
+    },
   };
 
   const cornerVariants = {
@@ -73,9 +77,9 @@ export default function Newsletter() {
         transition: {
           duration: 0.8,
           delay: 0.5,
-          ease: "easeOut"
-        }
-      }
+          ease: "easeOut",
+        },
+      },
     },
     bottomRight: {
       hidden: { opacity: 0, x: 20, y: 20 },
@@ -86,10 +90,10 @@ export default function Newsletter() {
         transition: {
           duration: 0.8,
           delay: 0.5,
-          ease: "easeOut"
-        }
-      }
-    }
+          ease: "easeOut",
+        },
+      },
+    },
   };
 
   const successVariants = {
@@ -100,9 +104,9 @@ export default function Newsletter() {
       transition: {
         type: "spring",
         stiffness: 200,
-        damping: 15
-      }
-    }
+        damping: 15,
+      },
+    },
   };
 
   return (
@@ -117,10 +121,7 @@ export default function Newsletter() {
         {/* Background Image */}
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage: `url('${process.env.NEXT_PUBLIC_IMAGE_URL}/model_poster/image.webp')`,
-            backgroundAttachment: "fixed",
-          }}
+          style={backgroundStyle}
         >
           {/* Overlay gradient for better text readability */}
           <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/40"></div>
