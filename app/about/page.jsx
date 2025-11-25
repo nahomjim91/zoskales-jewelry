@@ -7,18 +7,17 @@ import { OurExpert } from "@/components/About/OurExpert";
 import { motion } from "framer-motion";
 import ClientTestimonials from "@/components/About/ClientTestimonials";
 import InviteClient from "@/components/About/InviteClient";
+import { useParallaxBackground } from "@/hooks/useParallaxBackground";
 
 export default function About() {
+    const { backgroundStyle, isIOS } = useParallaxBackground(
+    '/images/bg/diamond_wedding_rings.png'
+  );
 return (
     <>
     <div
       className="relative min-h-screen overflow-x-hidden w-full flex items-center justify-center"
-      style={{
-        backgroundImage: `url('/images/bg/diamond_wedding_rings.webp')`,
-        backgroundPosition: "center",
-        backgroundSize: "cover",
-        backgroundAttachment: "fixed",
-      }}
+      style={backgroundStyle}
     >
        {/* Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-r from-primary to-secondary opacity-30"></div>

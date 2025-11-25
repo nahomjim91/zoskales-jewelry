@@ -1,30 +1,36 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useParallaxBackground } from "@/hooks/useParallaxBackground";
 
 export default function ClientTestimonials() {
+  const { isIOS } = useParallaxBackground();
   const [activeIndex, setActiveIndex] = useState(0);
 
   const testimonials = [
     {
-      quote: "Get The Latest Beauty Secrets And Trends. Sign Up For Our Newsletter And Stay Informed About All Things Beauty.",
+      quote:
+        "Get The Latest Beauty Secrets And Trends. Sign Up For Our Newsletter And Stay Informed About All Things Beauty.",
       author: "Selihom Kidane",
-      image: "/products/DiamondRing.webp"
+      image: "/products/DiamondRing.webp",
     },
     {
-      quote: "The craftsmanship and attention to detail in every piece is absolutely stunning. My engagement ring exceeded all expectations.",
+      quote:
+        "The craftsmanship and attention to detail in every piece is absolutely stunning. My engagement ring exceeded all expectations.",
       author: "Sarah Mitchell",
-      image: "/model_poster/StatementDiamondRing.webp"
+      image: "/model_poster/StatementDiamondRing.webp",
     },
     {
-      quote: "Working with their team was a dream. They helped me design a custom necklace that perfectly captured my vision.",
+      quote:
+        "Working with their team was a dream. They helped me design a custom necklace that perfectly captured my vision.",
       author: "James Chen",
-      image: "/products/image11.webp"
+      image: "/products/image11.webp",
     },
     {
-      quote: "The quality and artistry of their jewelry is unmatched. Every piece tells a story and becomes a cherished heirloom.",
+      quote:
+        "The quality and artistry of their jewelry is unmatched. Every piece tells a story and becomes a cherished heirloom.",
       author: "Isabella Romano",
-      image: "/products/DiamondPendantNecklaceinBurgundyBox.webp"
-    }
+      image: "/products/DiamondPendantNecklaceinBurgundyBox.webp",
+    },
   ];
 
   useEffect(() => {
@@ -37,41 +43,41 @@ export default function ClientTestimonials() {
   // Animation variants for the text content
   const quoteVariants = {
     initial: { opacity: 0, y: 20 },
-    animate: { 
-      opacity: 1, 
+    animate: {
+      opacity: 1,
       y: 0,
       transition: {
         duration: 0.6,
-        ease: [0.25, 0.46, 0.45, 0.94]
-      }
+        ease: [0.25, 0.46, 0.45, 0.94],
+      },
     },
-    exit: { 
-      opacity: 0, 
+    exit: {
+      opacity: 0,
       y: -20,
       transition: {
         duration: 0.4,
-        ease: [0.25, 0.46, 0.45, 0.94]
-      }
-    }
+        ease: [0.25, 0.46, 0.45, 0.94],
+      },
+    },
   };
 
   const authorVariants = {
     initial: { opacity: 0, y: 10 },
-    animate: { 
-      opacity: 1, 
+    animate: {
+      opacity: 1,
       y: 0,
       transition: {
         duration: 0.6,
         delay: 0.2,
-        ease: [0.25, 0.46, 0.45, 0.94]
-      }
+        ease: [0.25, 0.46, 0.45, 0.94],
+      },
     },
-    exit: { 
+    exit: {
       opacity: 0,
       transition: {
-        duration: 0.3
-      }
-    }
+        duration: 0.3,
+      },
+    },
   };
 
   return (
@@ -83,13 +89,15 @@ export default function ClientTestimonials() {
             <div
               key={index}
               className={`absolute inset-0  transition-opacity duration-1000 ${
-                index === activeIndex ? 'opacity-100' : 'opacity-0'
+                index === activeIndex ? "opacity-100" : "opacity-0"
               }`}
               style={{
-                backgroundImage: `url(${process.env.NEXT_PUBLIC_IMAGE_URL+testimonial.image})`,
+                backgroundImage: `url(${
+                  process.env.NEXT_PUBLIC_IMAGE_URL + testimonial.image
+                })`,
                 backgroundPosition: "center",
                 backgroundSize: "cover",
-                backgroundAttachment: "fixed",
+                ...(isIOS ? {} : { backgroundAttachment: "fixed" }),
               }}
             >
               <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/60"></div>
@@ -119,14 +127,14 @@ export default function ClientTestimonials() {
                   animate="animate"
                   exit="exit"
                 >
-                  <motion.p 
+                  <motion.p
                     variants={quoteVariants}
                     className="text-base md:text-lg lg:text-xl font-light text-white/95 leading-relaxed text-center mb-6"
                   >
                     {testimonials[activeIndex].quote}
                   </motion.p>
-                  
-                  <motion.p 
+
+                  <motion.p
                     variants={authorVariants}
                     className="text-sm md:text-base lg:text-lg font-light text-white/80 text-center italic"
                   >
@@ -146,9 +154,9 @@ export default function ClientTestimonials() {
                 whileHover={{ scale: 1.2 }}
                 whileTap={{ scale: 0.9 }}
                 className={`w-2.5 h-2.5 md:w-3 md:h-3 rounded-full transition-all duration-300 ${
-                  index === activeIndex 
-                    ? 'bg-white w-8 md:w-10' 
-                    : 'bg-white/40 hover:bg-white/60'
+                  index === activeIndex
+                    ? "bg-white w-8 md:w-10"
+                    : "bg-white/40 hover:bg-white/60"
                 }`}
                 aria-label={`Go to testimonial ${index + 1}`}
               />

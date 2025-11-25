@@ -1,14 +1,13 @@
+import { useParallaxBackground } from "@/hooks/useParallaxBackground";
 import { motion } from "framer-motion";
 
 export function Craftsmanship() {
+    const { backgroundStyle, isIOS } = useParallaxBackground(
+    '/images/bg/bg-cloth.png'
+  );
   return (
     <div
-      style={{
-        backgroundImage: `url('/images/bg/bg-cloth.png')`,
-        backgroundPosition: "center",
-        backgroundSize: "cover",
-        backgroundAttachment: "fixed",
-      }}
+      style={backgroundStyle}
     >
       <div className="relative flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12 px-6 md:px-12 lg:px-20 py-12 ">
         {/* Gradient Overlay */}

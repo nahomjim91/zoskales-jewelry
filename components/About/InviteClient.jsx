@@ -1,6 +1,8 @@
+import { useParallaxBackground } from "@/hooks/useParallaxBackground";
 import { motion } from "framer-motion";
 
 export default function InviteClient() {
+  const { isIOS } = useParallaxBackground();
   // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -70,7 +72,7 @@ export default function InviteClient() {
           className="absolute inset-0 bg-cover bg-center"
           style={{
             backgroundImage: `url('${process.env.NEXT_PUBLIC_IMAGE_URL}/image (10).webp')`,
-            backgroundAttachment: "fixed",
+            ...(isIOS ? {} : { backgroundAttachment: "fixed" }),
           }}
           initial={{ scale: 1.1, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
